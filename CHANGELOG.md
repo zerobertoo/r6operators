@@ -1,3 +1,10 @@
+# 1.0.0 (2026-05-07)
+
+
+### Bug Fixes
+
+* **package:** fixing react package version ([1c762bc](https://github.com/zerobertoo/operators/commit/1c762bcc879636d6b028fc1f9c9434294e61c251))
+
 ## [1.0.3](https://github.com/zerobertoo/operators/compare/v1.0.2...v1.0.3) (2026-05-07)
 
 
