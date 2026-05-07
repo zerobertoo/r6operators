@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>r6operators — R6S Operator Icons &amp; Metadata</title>
+    <meta
+      name="description"
+      content="High-quality vectorized Rainbow Six Siege operator icons &amp; metadata. Available for Node.js, ESM, and browser via CDN."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #070809;
+        --surface: #0c0f12;
+        --surface2: #111519;
+        --border: #1a2030;
+        --border2: #253040;
+        --text: #b8c8d8;
+        --text-dim: #7a90a8;
+        --atk: #f59e0b;
+        --atk-dim: rgba(245, 158, 11, 0.08);
+        --atk-glow: rgba(245, 158, 11, 0.22);
+        --def: #38bdf8;
+        --def-dim: rgba(56, 189, 248, 0.08);
+        --def-glow: rgba(56, 189, 248, 0.22);
+        --mono: "Share Tech Mono", monospace;
+        --display: "Rajdhani", sans-serif;
+        --body: "DM Sans", sans-serif;
+        --panel-w: 380px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--body);
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* subtle noise texture */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9000;
+        opacity: 1;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        padding: 72px 48px 52px;
+        border-bottom: 1px solid var(--border);
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(160deg, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(255, 255, 255, 0.012) 39px,
+            rgba(255, 255, 255, 0.012) 40px
+          );
+        pointer-events: none;
+      }
+
+      /* decorative corner brackets on hero */
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 24px;
+        right: 48px;
+        width: 80px;
+        height: 80px;
+        border-top: 1px solid rgba(245, 158, 11, 0.2);
+        border-right: 1px solid rgba(245, 158, 11, 0.2);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .hero-eyebrow {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .hero-title {
+        font-family: var(--display);
+        font-size: clamp(52px, 9vw, 108px);
+        font-weight: 700;
+        line-height: 0.88;
+        letter-spacing: -0.01em;
+        margin-bottom: 22px;
+      }
+
+      .title-r6 {
+        color: var(--atk);
+      }
+      .title-ops {
+        color: var(--text);
+      }
+
+      .hero-tagline {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-dim);
+        max-width: 500px;
+        line-height: 1.65;
+        margin-bottom: 36px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 44px;
+      }
+
+      .install-cmd {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        border-radius: 3px;
+        padding: 10px 16px;
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--atk);
+      }
+
+      .install-cmd .prompt {
+        color: var(--text-dim);
+        user-select: none;
+      }
+
+      .copy-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-dim);
+        padding: 2px 4px;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        transition: color 0.15s;
+      }
+      .copy-btn:hover {
+        color: var(--text);
+      }
+      .copy-btn.copied {
+        color: #4ade80;
+      }
+
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 9px 18px;
+        border: 1px solid var(--border2);
+        border-radius: 3px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-dim);
+        text-decoration: none;
+        transition: all 0.15s;
+        font-family: var(--mono);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .hero-link:hover {
+        color: var(--text);
+        background: var(--surface2);
+        border-color: var(--border2);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .stat-value {
+        font-family: var(--display);
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        color: var(--text-dim);
+        text-transform: uppercase;
+      }
+
+      /* ── FILTERS ── */
+      .filters {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7, 8, 9, 0.88);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 13px 48px;
+      }
+
+      .filters-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .filter-pills {
+        display: flex;
+        gap: 3px;
+      }
+
+      .pill {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--text-dim);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .pill:hover {
+        border-color: var(--border2);
+        color: var(--text);
+      }
+      .pill.active[data-role=""] {
+        border-color: rgba(184, 200, 216, 0.4);
+        color: var(--text);
+      }
+      .pill.active[data-role="Attacker"] {
+        border-color: var(--atk);
+        color: var(--atk);
+        background: var(--atk-dim);
+      }
+      .pill.active[data-role="Defender"] {
+        border-color: var(--def);
+        color: var(--def);
+        background: var(--def-dim);
+      }
+
+      .filter-sep {
+        width: 1px;
+        height: 22px;
+        background: var(--border);
+        flex-shrink: 0;
+      }
+
+      .filter-select {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        color: var(--text-dim);
+        padding: 6px 28px 6px 10px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234a5a6a'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        transition: all 0.15s;
+      }
+      .filter-select:focus {
+        outline: none;
+        border-color: var(--border2);
+        color: var(--text);
+      }
+      .filter-select option {
+        background: #111519;
+        color: #b8c8d8;
+      }
+
+      .search-wrap {
+        flex: 1;
+        min-width: 160px;
+        max-width: 280px;
+        position: relative;
+      }
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-dim);
+        pointer-events: none;
+      }
+      .search-input {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 6px 12px 6px 30px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: var(--text);
+        transition: border-color 0.15s;
+      }
+      .search-input:focus {
+        outline: none;
+        border-color: var(--border2);
+      }
+      .search-input::placeholder {
+        color: var(--text-dim);
+      }
+
+      .result-count {
+        margin-left: auto;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        color: var(--text-dim);
+        white-space: nowrap;
+      }
+
+      /* ── GRID ── */
+      .grid-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 48px 64px;
+      }
+
+      .ops-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+        gap: 10px;
+      }
+
+      .op-card {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 22px 14px 16px;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 9px;
+        text-align: center;
+        outline: none;
+      }
+
+      /* 4-corner bracket effect via pseudo elements + box-shadow trick */
+      .op-card::before,
+      .op-card::after {
+        content: "";
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        transition: border-color 0.2s;
+      }
+      .op-card::before {
+        top: -1px;
+        left: -1px;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+      }
+      .op-card::after {
+        bottom: -1px;
+        right: -1px;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid transparent;
+      }
+
+      .op-card[data-role="Attacker"]:hover,
+      .op-card[data-role="Attacker"]:focus-visible {
+        border-color: rgba(245, 158, 11, 0.35);
+        box-shadow:
+          0 4px 24px var(--atk-glow),
+          inset 0 0 24px rgba(245, 158, 11, 0.025);
+        transform: translateY(-3px);
+      }
+      .op-card[data-role="Attacker"]:hover::before,
+      .op-card[data-role="Attacker"]:hover::after,
+      .op-card[data-role="Attacker"]:focus-visible::before,
+      .op-card[data-role="Attacker"]:focus-visible::after {
+        border-color: var(--atk);
+      }
+
+      .op-card[data-role="Defender"]:hover,
+      .op-card[data-role="Defender"]:focus-visible {
+        border-color: rgba(56, 189, 248, 0.35);
+        box-shadow:
+          0 4px 24px var(--def-glow),
+          inset 0 0 24px rgba(56, 189, 248, 0.025);
+        transform: translateY(-3px);
+      }
+      .op-card[data-role="Defender"]:hover::before,
+      .op-card[data-role="Defender"]:hover::after,
+      .op-card[data-role="Defender"]:focus-visible::before,
+      .op-card[data-role="Defender"]:focus-visible::after {
+        border-color: var(--def);
+      }
+
+      .op-icon {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .op-icon svg {
+        width: 64px !important;
+        height: 64px !important;
+      }
+
+      .op-name {
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text);
+        line-height: 1.1;
+      }
+
+      .op-role-badge {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 1px;
+      }
+      .badge-atk {
+        color: var(--atk);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        background: var(--atk-dim);
+      }
+      .badge-def {
+        color: var(--def);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        background: var(--def-dim);
+      }
+
+      .op-meta-row {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .op-org {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--text-dim);
+        text-transform: uppercase;
+      }
+
+      .op-season {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--text-dim);
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        padding: 1px 5px;
+        border-radius: 1px;
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        padding: 80px 20px;
+        text-align: center;
+        color: var(--text-dim);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+      }
+
+      /* ── DETAIL PANEL ── */
+      .panel-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 200;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.28s;
+      }
+      .panel-backdrop.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .detail-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: var(--panel-w);
+        max-width: 100vw;
+        background: var(--surface);
+        border-left: 1px solid var(--border2);
+        z-index: 300;
+        transform: translateX(100%);
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .detail-panel.open {
+        transform: translateX(0);
+      }
+
+      .panel-header {
+        position: sticky;
+        top: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+
+      .panel-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        color: var(--text-dim);
+        text-transform: uppercase;
+      }
+
+      .panel-close {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        cursor: pointer;
+        color: var(--text-dim);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+        font-family: var(--mono);
+        font-size: 14px;
+        line-height: 1;
+      }
+      .panel-close:hover {
+        color: var(--text);
+        border-color: var(--border2);
+      }
+
+      .panel-body {
+        padding: 24px 20px 40px;
+        flex: 1;
+      }
+
+      .panel-op-header {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+
+      .panel-icon {
+        width: 96px;
+        height: 96px;
+        flex-shrink: 0;
+      }
+      .panel-icon svg {
+        width: 96px !important;
+        height: 96px !important;
+      }
+
+      .panel-op-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .panel-op-name {
+        font-family: var(--display);
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        line-height: 0.95;
+        margin-bottom: 8px;
+        word-break: break-word;
+      }
+
+      .panel-realname {
+        font-family: var(--body);
+        font-size: 14px;
+        color: var(--text-dim);
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .panel-badges {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      .pbadge {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 3px 9px;
+        border-radius: 1px;
+      }
+      .pbadge-atk {
+        color: var(--atk);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        background: var(--atk-dim);
+      }
+      .pbadge-def {
+        color: var(--def);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        background: var(--def-dim);
+      }
+      .pbadge-neutral {
+        color: var(--text-dim);
+        border: 1px solid var(--border);
+        background: var(--surface2);
+      }
+
+      .panel-section {
+        margin-bottom: 26px;
+      }
+
+      .section-title {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .ratings-list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .rating-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        width: 72px;
+        flex-shrink: 0;
+      }
+
+      .pips {
+        display: flex;
+        gap: 5px;
+      }
+
+      .pip {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        border: 1px solid var(--border2);
+        transition: background 0.15s;
+      }
+      .pip.on {
+        background: var(--text);
+        border-color: var(--text);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 18px;
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .meta-key {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
+
+      .meta-val {
+        font-family: var(--body);
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--text);
+        line-height: 1.4;
+      }
+
+      /* ── CODE TABS ── */
+      .code-tabs {
+        display: flex;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0;
+      }
+
+      .code-tab {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 9px 14px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: var(--text-dim);
+        cursor: pointer;
+        transition: all 0.15s;
+        margin-bottom: -1px;
+      }
+      .code-tab:hover {
+        color: var(--text);
+      }
+      .code-tab.active {
+        color: var(--text);
+        border-bottom-color: var(--atk);
+      }
+
+      .code-pane {
+        display: none;
+      }
+      .code-pane.active {
+        display: block;
+      }
+
+      .code-block {
+        position: relative;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-top: none;
+        border-radius: 0 0 3px 3px;
+        padding: 16px;
+      }
+
+      .code-block pre {
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.7;
+        color: #8fa8c0;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+      }
+
+      .code-copy {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        border-radius: 2px;
+        padding: 4px 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .code-copy:hover {
+        color: var(--text);
+      }
+      .code-copy.copied {
+        color: #4ade80;
+        border-color: rgba(74, 222, 128, 0.3);
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        border-top: 1px solid var(--border);
+        padding: 22px 48px;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-text {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--text-dim);
+      }
+      .footer-link {
+        color: var(--text-dim);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-link:hover {
+        color: var(--text);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 44px 20px 36px;
+        }
+        .hero::after {
+          display: none;
+        }
+        .filters {
+          padding: 11px 20px;
+        }
+        .grid-wrap {
+          padding: 20px 16px 48px;
+        }
+        .ops-grid {
+          grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+          gap: 8px;
+        }
+        .footer {
+          padding: 20px;
+        }
+        .hero-stats {
+          gap: 24px;
+        }
+        .result-count {
+          display: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .detail-panel {
+          width: 100vw;
+          border-left: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── HERO ── -->
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">// operator intelligence database</p>
+        <h1 class="hero-title">
+          <span class="title-r6">R6</span><span class="title-ops">OPERATORS</span>
+        </h1>
+        <p class="hero-tagline">
+          High-quality vectorized Rainbow Six Siege operator icons &amp; metadata. Available for
+          Node.js, ESM, and browser via CDN.
+        </p>
+        <div class="hero-actions">
+          <div class="install-cmd">
+            <span class="prompt">$</span>
+            <span>npm install @r6ops/operators</span>
+            <button
+              class="copy-btn"
+              id="install-copy"
+              title="Copy install command"
+              onclick="copyInstall()"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+              </svg>
+            </button>
+          </div>
+          <a
+            href="https://github.com/zerobertoo/r6operators"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-link"
+          >
+            <svg
+              height="16"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="16"
+              data-view-component="true"
+            >
+              <path
+                fill="currentColor"
+                d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
+              ></path>
+            </svg>
+
+            GitHub
+          </a>
+          <a
+            href="https://www.npmjs.com/package/@r6ops/operators"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-link"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M0 0v24h6.545V6h4.364v18H24V0H0z" />
+            </svg>
+            npm
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-value" id="op-count">—</span>
+            <span class="stat-label">Operators</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-value">SVG</span>
+            <span class="stat-label">Format</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-value">MIT</span>
+            <span class="stat-label">License</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-value">TS</span>
+            <span class="stat-label">Typed</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── FILTERS ── -->
+    <div class="filters" role="search">
+      <div class="filters-inner">
+        <div class="filter-pills" role="group" aria-label="Filter by role">
+          <button class="pill active" data-role="" onclick="setRole('')">All</button>
+          <button class="pill" data-role="Attacker" onclick="setRole('Attacker')">ATK</button>
+          <button class="pill" data-role="Defender" onclick="setRole('Defender')">DEF</button>
+        </div>
+        <div class="filter-sep" aria-hidden="true"></div>
+        <select
+          class="filter-select"
+          id="org-filter"
+          aria-label="Filter by organisation"
+          onchange="applyFilters()"
+        >
+          <option value="">All Orgs</option>
+        </select>
+        <div class="search-wrap">
+          <svg
+            class="search-icon"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="search"
+            class="search-input"
+            id="search-input"
+            placeholder="Search operator…"
+            aria-label="Search operators"
+            oninput="applyFilters()"
+          />
+        </div>
+        <span class="result-count" id="result-count" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <!-- ── OPERATOR GRID ── -->
+    <main>
+      <div class="grid-wrap">
+        <div class="ops-grid" id="ops-grid" role="list"></div>
+      </div>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="footer-text">
+          &copy; 2026
+          <a href="https://github.com/zerobertoo" class="footer-link" target="_blank" rel="noopener"
+            >zerobertoo</a
+          >
+          &mdash; MIT License
+        </span>
+        <span class="footer-text">Not affiliated with Ubisoft Entertainment</span>
+      </div>
+    </footer>
+
+    <!-- ── DETAIL PANEL ── -->
+    <div class="panel-backdrop" id="backdrop" onclick="closePanel()" aria-hidden="true"></div>
+    <aside
+      class="detail-panel"
+      id="detail-panel"
+      role="complementary"
+      aria-label="Operator details"
+    >
+      <div class="panel-header">
+        <span class="panel-label">// operator dossier</span>
+        <button class="panel-close" onclick="closePanel()" aria-label="Close panel">✕</button>
+      </div>
+      <div class="panel-body" id="panel-body"></div>
+    </aside>
+
+    <!-- UMD BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"></script>
+    <script>
+      "use strict"
+
+      let allOperators = []
+      let activeRole = ""
+      let activeKey = null
+
+      // ── INIT ──────────────────────────────────────────────────────────────
+      function init() {
+        if (typeof r6operators === "undefined") {
+          document.getElementById("ops-grid").innerHTML =
+            '<div class="empty-state">BUNDLE FAILED TO LOAD // CHECK NETWORK</div>'
+          return
+        }
+
+        allOperators = Object.entries(r6operators)
+          .filter(
+            ([, v]) =>
+              v &&
+              typeof v === "object" &&
+              typeof v.name === "string" &&
+              typeof v.toSVG === "function",
+          )
+          .map(([key, op]) => ({ key, op }))
+
+        document.getElementById("op-count").textContent = allOperators.length
+
+        // Populate org dropdown (sorted, unique)
+        const orgs = [...new Set(allOperators.map(({ op }) => op.org).filter(Boolean))].sort()
+        const sel = document.getElementById("org-filter")
+        orgs.forEach((org) => {
+          const o = document.createElement("option")
+          o.value = org
+          o.textContent = org
+          sel.appendChild(o)
+        })
+
+        renderGrid(allOperators)
+      }
+
+      // ── RENDER ────────────────────────────────────────────────────────────
+      function renderGrid(items) {
+        const grid = document.getElementById("ops-grid")
+        grid.innerHTML = ""
+
+        if (items.length === 0) {
+          grid.innerHTML = '<div class="empty-state">NO OPERATORS FOUND // ADJUST FILTERS</div>'
+          document.getElementById("result-count").textContent = "0 operators"
+          return
+        }
+
+        const frag = document.createDocumentFragment()
+
+        items.forEach(({ key, op }) => {
+          const card = document.createElement("div")
+          card.className = "op-card"
+          card.setAttribute("role", "listitem")
+          card.setAttribute("tabindex", "0")
+          card.dataset.role = op.role || ""
+          card.dataset.key = key
+          if (key === activeKey) card.classList.add("active")
+
+          const isRecruit = key.startsWith("recruit_")
+          const displayName = isRecruit ? "Recruit" : op.name || key
+          const season = op.meta?.season || ""
+          const roleClass = op.role === "Attacker" ? "badge-atk" : "badge-def"
+
+          card.innerHTML = `
+            <div class="op-icon" aria-hidden="true">${op.toSVG({ width: "64", height: "64" })}</div>
+            <div class="op-name">${esc(displayName)}</div>
+            <div class="op-role-badge ${roleClass}">${esc(op.role || "?")}</div>
+            <div class="op-meta-row">
+              ${op.org ? `<span class="op-org">${esc(op.org)}</span>` : ""}
+              ${season ? `<span class="op-season">${esc(season)}</span>` : ""}
+            </div>
+          `
+
+          card.addEventListener("click", () => openPanel(key))
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault()
+              openPanel(key)
+            }
+          })
+          frag.appendChild(card)
+        })
+
+        grid.appendChild(frag)
+        document.getElementById("result-count").textContent =
+          `${items.length} operator${items.length !== 1 ? "s" : ""}`
+      }
+
+      // ── FILTERS ───────────────────────────────────────────────────────────
+      function applyFilters() {
+        const org = document.getElementById("org-filter").value
+        const q = document.getElementById("search-input").value.toLowerCase().trim()
+
+        const filtered = allOperators.filter(({ key, op }) => {
+          if (activeRole && op.role !== activeRole) return false
+          if (org && op.org !== org) return false
+          if (q && !op.name?.toLowerCase().includes(q) && !key.toLowerCase().includes(q))
+            return false
+          return true
+        })
+
+        renderGrid(filtered)
+      }
+
+      function setRole(role) {
+        activeRole = role
+        document.querySelectorAll(".pill").forEach((p) => {
+          p.classList.toggle("active", p.dataset.role === role)
+        })
+        applyFilters()
+      }
+
+      // ── DETAIL PANEL ──────────────────────────────────────────────────────
+      function openPanel(key) {
+        const found = allOperators.find((x) => x.key === key)
+        if (!found) return
+        activeKey = key
+
+        document
+          .querySelectorAll(".op-card")
+          .forEach((c) => c.classList.toggle("active", c.dataset.key === key))
+
+        const { op } = found
+        const isAtk = op.role === "Attacker"
+        const isRecruit = key.startsWith("recruit_")
+        const displayName = isRecruit ? "Recruit" : op.name || key
+        const accentColor = isAtk ? "var(--atk)" : "var(--def)"
+
+        const pips = (val, max = 3) => {
+          let h = '<div class="pips" aria-label="' + val + " of " + max + '">'
+          for (let i = 1; i <= max; i++)
+            h += `<div class="pip${i <= (val || 0) ? " on" : ""}"></div>`
+          return h + "</div>"
+        }
+
+        let countryName = op.meta?.country || ""
+        try {
+          if (countryName) {
+            countryName =
+              new Intl.DisplayNames(["en"], { type: "region" }).of(countryName.toUpperCase()) ||
+              countryName
+          }
+        } catch (_) {}
+
+        const esmSnippet = `import { ${key} } from '@r6ops/operators';
+
+// Operator metadata
+console.log(${key}.name);   // "${op.name}"
+console.log(${key}.role);   // "${op.role}"
+console.log(${key}.org);    // "${op.org}"
+
+// Render SVG
+const svg = ${key}.toSVG({ width: '64', height: '64' });
+document.body.innerHTML = svg;`
+
+        const cdnSnippet = `<!-- Load the bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"><\/script>
+
+<script>
+  const { ${key} } = r6operators;
+
+  console.log(${key}.name);  // "${op.name}"
+  document.body.innerHTML = ${key}.toSVG({ width: '64' });
+<\/script>`
+
+        const metaItems = [
+          op.bio?.realName ? ["Real Name", op.bio.realName] : null,
+          op.bio?.birthplace ? ["Birthplace", op.bio.birthplace] : null,
+          countryName ? ["Country", countryName] : null,
+          op.meta?.height ? ["Height", op.meta.height + " cm"] : null,
+          op.meta?.weight ? ["Weight", op.meta.weight + " kg"] : null,
+          op.squad ? ["Squad", op.squad] : null,
+          op.meta?.gender
+            ? [
+                "Gender",
+                op.meta.gender === "m"
+                  ? "Male"
+                  : op.meta.gender === "f"
+                    ? "Female"
+                    : op.meta.gender,
+              ]
+            : null,
+        ].filter(Boolean)
+
+        document.getElementById("panel-body").innerHTML = `
+          <div class="panel-op-header">
+            <div class="panel-icon" aria-hidden="true">${op.toSVG({ width: "96", height: "96" })}</div>
+            <div class="panel-op-info">
+              <div class="panel-op-name" style="color:${accentColor}">${esc(displayName)}</div>
+              ${op.bio?.realName ? `<div class="panel-realname">${esc(op.bio.realName)}</div>` : ""}
+              <div class="panel-badges">
+                <span class="pbadge ${isAtk ? "pbadge-atk" : "pbadge-def"}">${esc(op.role || "?")}</span>
+                ${op.org ? `<span class="pbadge pbadge-neutral">${esc(op.org)}</span>` : ""}
+                ${op.meta?.season ? `<span class="pbadge pbadge-neutral">${esc(op.meta.season)}</span>` : ""}
+              </div>
+            </div>
+          </div>
+
+          ${
+            op.ratings
+              ? `
+          <div class="panel-section">
+            <div class="section-title">Combat Ratings</div>
+            <div class="ratings-list">
+              <div class="rating-row"><span class="rating-label">Health</span>${pips(op.ratings.health)}</div>
+              <div class="rating-row"><span class="rating-label">Speed</span>${pips(op.ratings.speed)}</div>
+              <div class="rating-row"><span class="rating-label">Difficulty</span>${pips(op.ratings.difficulty)}</div>
+            </div>
+          </div>`
+              : ""
+          }
+
+          ${
+            metaItems.length
+              ? `
+          <div class="panel-section">
+            <div class="section-title">Profile</div>
+            <div class="meta-grid">
+              ${metaItems
+                .map(
+                  ([k, v]) => `
+                <div class="meta-item">
+                  <span class="meta-key">${esc(k)}</span>
+                  <span class="meta-val">${esc(String(v))}</span>
+                </div>`,
+                )
+                .join("")}
+            </div>
+          </div>`
+              : ""
+          }
+
+          <div class="panel-section">
+            <div class="section-title">Usage</div>
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="switchTab(this,'esm')">ESM / Node.js</button>
+              <button class="code-tab" onclick="switchTab(this,'cdn')">CDN / Browser</button>
+            </div>
+            <div id="pane-esm" class="code-pane active">
+              <div class="code-block">
+                <pre>${esc(esmSnippet)}</pre>
+                <button class="code-copy" onclick="copyCode(this,${JSON.stringify(esmSnippet)})">Copy</button>
+              </div>
+            </div>
+            <div id="pane-cdn" class="code-pane">
+              <div class="code-block">
+                <pre>${esc(cdnSnippet)}</pre>
+                <button class="code-copy" onclick="copyCode(this,${JSON.stringify(cdnSnippet)})">Copy</button>
+              </div>
+            </div>
+          </div>
+        `
+
+        document.getElementById("detail-panel").classList.add("open")
+        document.getElementById("backdrop").classList.add("open")
+        document.getElementById("detail-panel").scrollTop = 0
+        document.getElementById("detail-panel").focus()
+      }
+
+      function closePanel() {
+        activeKey = null
+        document.querySelectorAll(".op-card").forEach((c) => c.classList.remove("active"))
+        document.getElementById("detail-panel").classList.remove("open")
+        document.getElementById("backdrop").classList.remove("open")
+      }
+
+      function switchTab(btn, pane) {
+        btn
+          .closest(".panel-section")
+          .querySelectorAll(".code-tab")
+          .forEach((t) => t.classList.remove("active"))
+        btn
+          .closest(".panel-section")
+          .querySelectorAll(".code-pane")
+          .forEach((p) => p.classList.remove("active"))
+        btn.classList.add("active")
+        document.getElementById("pane-" + pane).classList.add("active")
+      }
+
+      // ── UTILITIES ─────────────────────────────────────────────────────────
+      function esc(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+      }
+
+      function copyCode(btn, text) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const orig = btn.textContent
+            btn.textContent = "Copied!"
+            btn.classList.add("copied")
+            setTimeout(() => {
+              btn.textContent = orig
+              btn.classList.remove("copied")
+            }, 2000)
+          })
+          .catch(() => {})
+      }
+
+      function copyInstall() {
+        const btn = document.getElementById("install-copy")
+        navigator.clipboard
+          .writeText("npm install @r6ops/operators")
+          .then(() => {
+            btn.classList.add("copied")
+            setTimeout(() => btn.classList.remove("copied"), 2000)
+          })
+          .catch(() => {})
+      }
+
+      // ── KEYBOARD ──────────────────────────────────────────────────────────
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePanel()
+      })
+
+      document.addEventListener("DOMContentLoaded", init)
+    </script>
+  </body>
+</html>

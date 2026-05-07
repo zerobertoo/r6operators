@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>r6operators UMD Bundle Test</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        padding: 2rem;
+        background: #111;
+        color: #eee;
+      }
+      h1 {
+        color: #4af;
+      }
+      .result {
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+      .pass {
+        border-color: #4a4;
+        color: #4d4;
+      }
+      .fail {
+        border-color: #a44;
+        color: #d44;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .operator {
+        text-align: center;
+        font-size: 0.75rem;
+      }
+      .operator svg {
+        width: 64px;
+        height: 64px;
+      }
+      pre {
+        overflow: auto;
+        max-height: 200px;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>r6operators — UMD Bundle Test</h1>
+    <p>
+      Tests that <code>dist/r6operators.min.js</code> loads correctly via a plain
+      <code>&lt;script&gt;</code> tag.
+    </p>
+
+    <div id="results"></div>
+    <h2>Operator Grid</h2>
+    <div class="grid" id="grid"></div>
+
+    <!-- Load the UMD bundle -->
+    <script src="../dist/r6operators.min.js"></script>
+    <script>
+      const results = document.getElementById("results")
+      const grid = document.getElementById("grid")
+
+      function assert(label, condition, detail = "") {
+        const el = document.createElement("div")
+        el.className = "result " + (condition ? "pass" : "fail")
+        el.innerHTML = `<strong>${condition ? "✓" : "✗"} ${label}</strong>${detail ? `<pre>${detail}</pre>` : ""}`
+        results.appendChild(el)
+        return condition
+      }
+
+      // Test 1: global variable exists
+      assert("window.r6operators is defined", typeof r6operators !== "undefined")
+
+      // Test 2: has operators
+      const keys = Object.keys(r6operators).filter((k) => r6operators[k] && typeof r6operators[k].toSVG === "function")
+      assert(
+        `Has operators (expected ~84, got ${keys.length})`,
+        keys.length >= 80,
+        `Sample: ${keys.slice(0, 5).join(", ")}`,
+      )
+
+      // Test 3: getSVGIcon function
+      assert("getSVGIcon is a function", typeof r6operators.getSVGIcon === "function")
+
+      // Test 4: operator object shape
+      const alibi = r6operators.alibi
+      assert(
+        "alibi operator exists",
+        !!alibi,
+        JSON.stringify({ name: alibi?.name, role: alibi?.role }),
+      )
+
+      // Test 5: toSVG method
+      assert("alibi.toSVG() is a function", typeof alibi?.toSVG === "function")
+
+      // Test 6: toSVG returns valid SVG string
+      const svg = alibi?.toSVG()
+      assert("alibi.toSVG() returns SVG string", svg?.startsWith("<svg"), svg?.slice(0, 80))
+
+      // Test 7: toSVG with custom attributes
+      const customSvg = alibi?.toSVG({ width: "100", height: "100", class: "my-icon" })
+      assert(
+        "toSVG() accepts custom attributes",
+        customSvg?.includes('width="100"') && customSvg?.includes("class="),
+        customSvg?.slice(0, 100),
+      )
+
+      // Test 8: getSVGIcon helper
+      const iconSvg = r6operators.getSVGIcon(alibi, { width: "48" })
+      assert("getSVGIcon(op) returns SVG", iconSvg?.startsWith("<svg"), iconSvg?.slice(0, 80))
+
+      // Test 9: operator metadata
+      assert(
+        "alibi has correct metadata",
+        alibi?.org === "GIS" && alibi?.role === "Defender",
+        `org: ${alibi?.org}, role: ${alibi?.role}, season: ${alibi?.meta?.season}`,
+      )
+
+      // Render grid
+      keys.slice(0, keys.length - 1).forEach((key) => {
+        const op = r6operators[key]
+        const div = document.createElement("div")
+        div.className = "operator"
+        div.innerHTML = op.toSVG() + `<div>${op.name}</div>`
+        grid.appendChild(div)
+      })
+    </script>
+  </body>
+</html>

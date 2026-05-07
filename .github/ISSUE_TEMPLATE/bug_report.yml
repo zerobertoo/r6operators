@@ -1,0 +1,84 @@
+name: Bug Report
+description: Report a problem with r6operators
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in all required fields so we can reproduce and fix it faster.
+
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: "The version of `@r6ops/operators` you are using."
+      placeholder: "ex: 2.12.2"
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      description: "Run `node --version` and paste the output."
+      placeholder: "ex: v20.11.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime / environment
+      description: "Where is the code running?"
+      options:
+        - Node.js (CommonJS)
+        - Node.js (ESM)
+        - Browser (bundler — Vite, Webpack, esbuild…)
+        - Browser (CDN / UMD script tag)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "ex: macOS 14.4, Ubuntu 22.04, Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: "Minimal code snippet or commands that trigger the bug."
+      placeholder: |
+        ```ts
+        import { operators } from '@r6ops/operators';
+        // ...
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: "What should happen?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: "What actually happens? Include error messages or stack traces."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: "Anything else that might help (screenshots, related issues, etc.)."

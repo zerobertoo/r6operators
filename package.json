@@ -1,0 +1,106 @@
+{
+  "name": "@r6ops/operators",
+  "version": "1.0.0",
+  "description": "A collection of high-quality vectorized Rainbow Six: Siege operator icons & metadata for Node.js",
+  "keywords": [
+    "rainbow six siege",
+    "r6",
+    "R6S",
+    "siege",
+    "operator",
+    "icon",
+    "ubisoft",
+    "rainbow6",
+    "r6operators",
+    "fork"
+  ],
+  "homepage": "https://zerobertoo.github.io/r6operators",
+  "bugs": "https://github.com/zerobertoo/operators/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerobertoo/operators.git"
+  },
+  "license": "MIT",
+  "author": "Jose Roberto <euzerobertoo@gmail.com> (https://github.com/zerobertoo)",
+  "contributors": [
+    "Marco Vockner <me@marcovockner.dev> (https://github.com/marcopixel) (original author)",
+    "dtSniper (https://twitter.com/sniperdt)",
+    "Joey Foo (https://github.com/joeyfoo)",
+    "Lars Brix (https://github.com/LaxisB)"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/r6operators.min.js",
+  "unpkg": "dist/r6operators.min.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "workspaces": [
+    "packages/*"
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "ts-node ./scripts/clean.ts",
+    "build": "npm run clean && ts-node ./scripts/build.ts",
+    "pretest": "[ -d dist ] || npm run build",
+    "test": "jest",
+    "lint": "eslint '**/*.{js,ts}'",
+    "format": "prettier **/* --ignore-path .gitignore --check --write",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.0",
+    "@types/stringify-object": "^4.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.59.2",
+    "@typescript-eslint/parser": "^8.59.2",
+    "cheerio": "^1.2.0",
+    "dts-bundle-generator": "^9.5.1",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-unicorn": "^64.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.3.0",
+    "lint-staged": "^16.4.0",
+    "micromatch": "^4.0.8",
+    "prettier": "^3.8.3",
+    "rollup": "^4.60.3",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "semantic-release": "^24.2.9",
+    "stringify-object": "^6.0.0",
+    "svgo": "^4.0.1",
+    "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,ts,json,md}": "prettier --write"
+  }
+}

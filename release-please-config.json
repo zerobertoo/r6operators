@@ -1,0 +1,14 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@r6ops/operators"
+    },
+    "packages/react": {
+      "release-type": "node",
+      "package-name": "@r6ops/operators-react"
+    }
+  },
+  "bootstrap-sha": "initial-sha",
+  "plugins": ["node-workspace"]
+}
