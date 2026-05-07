@@ -1,6 +1,6 @@
 {
   "name": "@r6ops/operators-react",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "React component wrapper for @r6ops/operators — render R6S operator icons as React elements",
   "keywords": [
     "rainbow six siege",
