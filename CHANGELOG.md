@@ -5,6 +5,13 @@
 
 * **package:** fixing react package version ([1c762bc](https://github.com/zerobertoo/r6operators/commit/1c762bcc879636d6b028fc1f9c9434294e61c251))
 
+# 1.0.0 (2026-05-08)
+
+
+### Bug Fixes
+
+* **package:** fixing react package version ([1c762bc](https://github.com/zerobertoo/r6operators/commit/1c762bcc879636d6b028fc1f9c9434294e61c251))
+
 # 1.0.0 (2026-05-07)
 
 
