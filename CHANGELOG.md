@@ -3,21 +3,21 @@
 
 ### Bug Fixes
 
-* **package:** fixing react package version ([1c762bc](https://github.com/zerobertoo/operators/commit/1c762bcc879636d6b028fc1f9c9434294e61c251))
+* **package:** fixing react package version ([1c762bc](https://github.com/zerobertoo/r6operators/commit/1c762bcc879636d6b028fc1f9c9434294e61c251))
 
-## [1.0.3](https://github.com/zerobertoo/operators/compare/v1.0.2...v1.0.3) (2026-05-07)
-
-
-### Bug Fixes
-
-* **react:** update import paths to @r6ops/operators ([3826d1b](https://github.com/zerobertoo/operators/commit/3826d1b134a36add5c58becd97f19ecafd293b23))
-
-## [1.0.2](https://github.com/zerobertoo/operators/compare/v1.0.1...v1.0.2) (2026-05-07)
+## [1.0.3](https://github.com/zerobertoo/r6operators/compare/v1.0.2...v1.0.3) (2026-05-07)
 
 
 ### Bug Fixes
 
-* update repository URLs to match renamed GitHub repo (operators) ([ad02e94](https://github.com/zerobertoo/operators/commit/ad02e946d4105a358c2a02deb2acd09fe4b3b588))
+* **react:** update import paths to r6operators ([3826d1b](https://github.com/zerobertoo/r6operators/commit/3826d1b134a36add5c58becd97f19ecafd293b23))
+
+## [1.0.2](https://github.com/zerobertoo/r6operators/compare/v1.0.1...v1.0.2) (2026-05-07)
+
+
+### Bug Fixes
+
+* update repository URLs to match renamed GitHub repo (operators) ([ad02e94](https://github.com/zerobertoo/r6operators/commit/ad02e946d4105a358c2a02deb2acd09fe4b3b588))
 
 ## [1.0.1](https://github.com/zerobertoo/r6operators/compare/v1.0.0...v1.0.1) (2026-05-06)
 

@@ -3,7 +3,7 @@
 /label ~bug
 
 ### Package version
-<!-- Run: node -e "console.log(require('@r6ops/operators/package.json').version)" -->
+<!-- Run: node -e "console.log(require('r6operators/package.json').version)" -->
 
 ### Node.js version
 <!-- Run: node --version -->
@@ -17,7 +17,7 @@
 ### Steps to reproduce
 
 ```ts
-import { operators } from '@r6ops/operators';
+import { operators } from 'r6operators';
 // ...
 ```
 

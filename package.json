@@ -1,5 +1,5 @@
 {
-  "name": "@r6ops/operators",
+  "name": "r6operators",
   "version": "1.0.0",
   "description": "A collection of high-quality vectorized Rainbow Six: Siege operator icons & metadata for Node.js",
   "keywords": [
@@ -15,10 +15,10 @@
     "fork"
   ],
   "homepage": "https://zerobertoo.github.io/r6operators",
-  "bugs": "https://github.com/zerobertoo/operators/issues",
+  "bugs": "https://github.com/zerobertoo/r6operators/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zerobertoo/operators.git"
+    "url": "https://github.com/zerobertoo/r6operators.git"
   },
   "license": "MIT",
   "author": "Jose Roberto <euzerobertoo@gmail.com> (https://github.com/zerobertoo)",

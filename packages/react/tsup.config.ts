@@ -9,6 +9,6 @@ export default defineConfig({
   tsconfig: "tsconfig.json",
   sourcemap: true,
   clean: true,
-  external: ["react", "@r6ops/operators"],
+  external: ["react", "r6operators"],
   treeshake: true,
 })

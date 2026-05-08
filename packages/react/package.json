@@ -1,7 +1,7 @@
 {
-  "name": "@r6ops/operators-react",
+  "name": "r6operators-react",
   "version": "1.0.0",
-  "description": "React component wrapper for @r6ops/operators — render R6S operator icons as React elements",
+  "description": "React component wrapper for r6operators — render R6S operator icons as React elements",
   "keywords": [
     "rainbow six siege",
     "r6",
@@ -13,10 +13,10 @@
     "component"
   ],
   "homepage": "https://zerobertoo.github.io/r6operators",
-  "bugs": "https://github.com/zerobertoo/operators/issues",
+  "bugs": "https://github.com/zerobertoo/r6operators/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zerobertoo/operators.git",
+    "url": "https://github.com/zerobertoo/r6operators.git",
     "directory": "packages/react"
   },
   "license": "MIT",
@@ -44,12 +44,12 @@
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
-    "@r6ops/operators": ">=2.12.0",
+    "r6operators": ">=2.12.0",
     "react": ">=17"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "@r6ops/operators": "file:../..",
+    "r6operators": "file:../..",
     "react": "^18.3.1",
     "tsup": "^8.3.0",
     "typescript": "^5.6.3"

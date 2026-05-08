@@ -2,13 +2,13 @@
 
 # r6operators
 
-![GitHub last commit](https://img.shields.io/github/last-commit/zerobertoo/operators?style=for-the-badge)
-[![GitHub stars](https://img.shields.io/github/stars/zerobertoo/operators?style=for-the-badge)](https://github.com/zerobertoo/operators)
-[![GitHub forks](https://img.shields.io/github/forks/zerobertoo/operators?style=for-the-badge)](https://github.com/zerobertoo/operators)
-[![GitHub license](https://img.shields.io/github/license/zerobertoo/operators?style=for-the-badge)](https://github.com/zerobertoo/operators)
-[![npm version](https://img.shields.io/npm/v/@r6ops/operators.svg?style=for-the-badge)](https://www.npmjs.com/package/@r6ops/operators)
-[![npm downloads](https://img.shields.io/npm/dw/@r6ops/operators.svg?style=for-the-badge)](https://www.npmjs.com/package/@r6ops/operators)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@r6ops/operators?style=for-the-badge)](https://bundlephobia.com/package/@r6ops/operators)
+![GitHub last commit](https://img.shields.io/github/last-commit/zerobertoo/r6operators?style=for-the-badge)
+[![GitHub stars](https://img.shields.io/github/stars/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
+[![GitHub forks](https://img.shields.io/github/forks/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
+[![GitHub license](https://img.shields.io/github/license/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
+[![npm version](https://img.shields.io/npm/v/r6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/r6operators)
+[![npm downloads](https://img.shields.io/npm/dw/r6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/r6operators)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/r6operators?style=for-the-badge)](https://bundlephobia.com/package/r6operators)
 
 **[Live demo →](https://zerobertoo.github.io/r6operators)**
 
@@ -25,17 +25,17 @@ This project started as way for people to get high-resolution operator icons for
 Install the package with [npm](https://docs.npmjs.com/getting-started/what-is-npm):
 
 ```shell
-npm install @r6ops/operators
+npm install r6operators
 ```
 
 #### 2. Use it
 
 ```js
 // named imports
-import { ace, alibi, getSVGIcon } from "@r6ops/operators"
+import { ace, alibi, getSVGIcon } from "r6operators"
 
 // default import (all operators + getSVGIcon as one object)
-import r6operators from "@r6ops/operators"
+import r6operators from "r6operators"
 
 alibi
 // {
@@ -81,7 +81,7 @@ alibi.toSVG({ class: "large", "stroke-width": 2, color: "red" })
 // <svg class="r6operators r6operators-alibi large" stroke-width="2" color="red" ... >...</svg>
 ```
 
-You can also access the optimized SVG icons directly from `node_modules/@r6ops/operators/dist/icons` if you desire.
+You can also access the optimized SVG icons directly from `node_modules/r6operators/dist/icons` if you desire.
 
 #### Using via CDN (browser)
 
@@ -89,16 +89,16 @@ Load the minified UMD bundle from [jsDelivr](https://www.jsdelivr.com/) or [unpk
 
 ```html
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
 
 <!-- unpkg -->
-<script src="https://unpkg.com/@r6ops/operators/dist/r6operators.min.js"></script>
+<script src="https://unpkg.com/r6operators/dist/r6operators.min.js"></script>
 ```
 
 The library is available as the global `r6operators`:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
 <script>
   document.body.innerHTML = r6operators.alibi.toSVG({ width: 64, height: 64 })
 </script>
@@ -107,24 +107,24 @@ The library is available as the global `r6operators`:
 Individual optimized SVG icons are also served directly via CDN:
 
 ```
-https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/icons/alibi.svg
-https://unpkg.com/@r6ops/operators/dist/icons/alibi.svg
+https://cdn.jsdelivr.net/npm/r6operators/dist/icons/alibi.svg
+https://unpkg.com/r6operators/dist/icons/alibi.svg
 ```
 
 ## React Component
 
-For React applications, use the dedicated `@r6ops/operators-react` package:
+For React applications, use the dedicated `r6operators-react` package:
 
 #### 1. Install
 
 ```shell
-npm install @r6ops/operators-react
+npm install r6operators-react
 ```
 
 #### 2. Use it
 
 ```jsx
-import { R6Operator } from "@r6ops/operators-react"
+import { R6Operator } from "r6operators-react"
 
 function App() {
   return (
@@ -150,7 +150,7 @@ The component accepts the following props:
 
 An object containing all data about the operator, including the svg contents and attributes.
 
-> Note: You can find all possible operator names in the [operators/index.ts](https://github.com/zerobertoo/operators/blob/master/operators/index.ts) file
+> Note: You can find all possible operator names in the [operators/index.ts](https://github.com/zerobertoo/r6operators/blob/master/operators/index.ts) file
 >
 > Please keep in mind that the properties `bio`, `meta` and `ratings` are not available on recruits.
 
@@ -232,7 +232,7 @@ Returns an SVG string of the operator icon.
 | `attrs` (optional) | Object   | Key-value pairs in the `attrs` object will be mapped to HTML attributes on the `<svg>` tag (e.g. `{ foo: 'bar' }` maps to `foo="bar"`). All default attributes on the `<svg>` tag can be overridden with the `attrs` object. |
 
 ```js
-import { alibi, getSVGIcon } from "@r6ops/operators"
+import { alibi, getSVGIcon } from "r6operators"
 
 getSVGIcon(alibi)
 // <svg class="r6operators r6operators-alibi" ... >...</svg>
@@ -243,9 +243,9 @@ getSVGIcon(alibi, { class: "large" })
 
 ## Contributing
 
-For more info on how to contribute please see the [contribution guidelines](https://github.com/zerobertoo/operators/blob/master/CONTRIBUTING.md).
+For more info on how to contribute please see the [contribution guidelines](https://github.com/zerobertoo/r6operators/blob/master/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/zerobertoo/operators/blob/master/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/zerobertoo/r6operators/blob/master/README.md)
 
 ## Credits
 
@@ -258,6 +258,6 @@ Caught a mistake or want to contribute to the documentation? [Edit this page on 
 
 ## License
 
-@r6ops/operators is licensed under the [MIT License](https://github.com/zerobertoo/operators/blob/master/LICENSE).
+r6operators is licensed under the [MIT License](https://github.com/zerobertoo/r6operators/blob/master/LICENSE).
 
 This project is not affiliated with Ubisoft Entertainment. Tom Clancy's, Rainbow Six, The Soldier Icon, Ubisoft and the Ubisoft logo are trademarks of Ubisoft Entertainment.

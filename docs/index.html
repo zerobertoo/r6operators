@@ -931,7 +931,7 @@
         <div class="hero-actions">
           <div class="install-cmd">
             <span class="prompt">$</span>
-            <span>npm install @r6ops/operators</span>
+            <span>npm install r6operators</span>
             <button
               class="copy-btn"
               id="install-copy"
@@ -976,7 +976,7 @@
             GitHub
           </a>
           <a
-            href="https://www.npmjs.com/package/@r6ops/operators"
+            href="https://www.npmjs.com/package/r6operators"
             target="_blank"
             rel="noopener noreferrer"
             class="hero-link"
@@ -1091,7 +1091,7 @@
     </aside>
 
     <!-- UMD BUNDLE -->
-    <script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
     <script>
       "use strict"
 
@@ -1240,7 +1240,7 @@
           }
         } catch (_) {}
 
-        const esmSnippet = `import { ${key} } from '@r6ops/operators';
+        const esmSnippet = `import { ${key} } from 'r6operators';
 
 // Operator metadata
 console.log(${key}.name);   // "${op.name}"
@@ -1252,7 +1252,7 @@ const svg = ${key}.toSVG({ width: '64', height: '64' });
 document.body.innerHTML = svg;`
 
         const cdnSnippet = `<!-- Load the bundle -->
-<script src="https://cdn.jsdelivr.net/npm/@r6ops/operators/dist/r6operators.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"><\/script>
 
 <script>
   const { ${key} } = r6operators;
@@ -1402,7 +1402,7 @@ document.body.innerHTML = svg;`
       function copyInstall() {
         const btn = document.getElementById("install-copy")
         navigator.clipboard
-          .writeText("npm install @r6ops/operators")
+          .writeText("npm install r6operators")
           .then(() => {
             btn.classList.add("copied")
             setTimeout(() => btn.classList.remove("copied"), 2000)
