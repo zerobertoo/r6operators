@@ -1,7 +1,9 @@
 name: release
 
 on:
-  push:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
     branches: [master]
 
 permissions:
@@ -14,6 +16,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -38,16 +41,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           HUSKY: "0"
-
-      - name: Build project
-        if: steps.release.outputs.new_release_published == 'true'
-        run: npm run build
-
-      - name: Publish to NPM
-        if: steps.release.outputs.new_release_published == 'true'
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build React package
         if: steps.release.outputs.new_release_published == 'true'
