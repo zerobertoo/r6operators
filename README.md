@@ -6,9 +6,9 @@
 [![GitHub stars](https://img.shields.io/github/stars/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
 [![GitHub forks](https://img.shields.io/github/forks/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
 [![GitHub license](https://img.shields.io/github/license/zerobertoo/r6operators?style=for-the-badge)](https://github.com/zerobertoo/r6operators)
-[![npm version](https://img.shields.io/npm/v/r6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/r6operators)
-[![npm downloads](https://img.shields.io/npm/dw/r6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/r6operators)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/r6operators?style=for-the-badge)](https://bundlephobia.com/package/r6operators)
+[![npm version](https://img.shields.io/npm/v/%40zerobertoo%2Fr6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/@zerobertoo/r6operators)
+[![npm downloads](https://img.shields.io/npm/dw/%40zerobertoo%2Fr6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/@zerobertoo/r6operators)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/%40zerobertoo%2Fr6operators?style=for-the-badge)](https://bundlephobia.com/package/@zerobertoo/r6operators)
 
 **[Live demo →](https://zerobertoo.github.io/r6operators)**
 
@@ -25,17 +25,17 @@ This project started as way for people to get high-resolution operator icons for
 Install the package with [npm](https://docs.npmjs.com/getting-started/what-is-npm):
 
 ```shell
-npm install r6operators
+npm install @zerobertoo/r6operators
 ```
 
 #### 2. Use it
 
 ```js
 // named imports
-import { ace, alibi, getSVGIcon } from "r6operators"
+import { ace, alibi, getSVGIcon } from "@zerobertoo/r6operators"
 
 // default import (all operators + getSVGIcon as one object)
-import r6operators from "r6operators"
+import r6operators from "@zerobertoo/r6operators"
 
 alibi
 // {
@@ -81,7 +81,7 @@ alibi.toSVG({ class: "large", "stroke-width": 2, color: "red" })
 // <svg class="r6operators r6operators-alibi large" stroke-width="2" color="red" ... >...</svg>
 ```
 
-You can also access the optimized SVG icons directly from `node_modules/r6operators/dist/icons` if you desire.
+You can also access the optimized SVG icons directly from `node_modules/@zerobertoo/r6operators/dist/icons` if you desire.
 
 #### Using via CDN (browser)
 
@@ -89,16 +89,16 @@ Load the minified UMD bundle from [jsDelivr](https://www.jsdelivr.com/) or [unpk
 
 ```html
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/r6operators.min.js"></script>
 
 <!-- unpkg -->
-<script src="https://unpkg.com/r6operators/dist/r6operators.min.js"></script>
+<script src="https://unpkg.com/@zerobertoo/r6operators/dist/r6operators.min.js"></script>
 ```
 
 The library is available as the global `r6operators`:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/r6operators.min.js"></script>
 <script>
   document.body.innerHTML = r6operators.alibi.toSVG({ width: 64, height: 64 })
 </script>
@@ -107,24 +107,24 @@ The library is available as the global `r6operators`:
 Individual optimized SVG icons are also served directly via CDN:
 
 ```
-https://cdn.jsdelivr.net/npm/r6operators/dist/icons/alibi.svg
-https://unpkg.com/r6operators/dist/icons/alibi.svg
+https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/icons/alibi.svg
+https://unpkg.com/@zerobertoo/r6operators/dist/icons/alibi.svg
 ```
 
 ## React Component
 
-For React applications, use the dedicated `r6operators-react` package:
+For React applications, use the dedicated `@zerobertoo/r6operators-react` package:
 
 #### 1. Install
 
 ```shell
-npm install r6operators-react
+npm install @zerobertoo/r6operators-react
 ```
 
 #### 2. Use it
 
 ```jsx
-import { R6Operator } from "r6operators-react"
+import { R6Operator } from "@zerobertoo/r6operators-react"
 
 function App() {
   return (
@@ -232,7 +232,7 @@ Returns an SVG string of the operator icon.
 | `attrs` (optional) | Object   | Key-value pairs in the `attrs` object will be mapped to HTML attributes on the `<svg>` tag (e.g. `{ foo: 'bar' }` maps to `foo="bar"`). All default attributes on the `<svg>` tag can be overridden with the `attrs` object. |
 
 ```js
-import { alibi, getSVGIcon } from "r6operators"
+import { alibi, getSVGIcon } from "@zerobertoo/r6operators"
 
 getSVGIcon(alibi)
 // <svg class="r6operators r6operators-alibi" ... >...</svg>

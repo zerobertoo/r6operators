@@ -9,6 +9,6 @@ export default defineConfig({
   tsconfig: "tsconfig.json",
   sourcemap: true,
   clean: true,
-  external: ["react", "r6operators"],
+  external: ["react", "@zerobertoo/r6operators"],
   treeshake: true,
 })

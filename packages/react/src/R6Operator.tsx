@@ -1,5 +1,5 @@
-import * as operators from "r6operators"
-import type { Operator } from "r6operators"
+import * as operators from "@zerobertoo/r6operators"
+import type { Operator } from "@zerobertoo/r6operators"
 import React from "react"
 
 type AllExports = typeof operators

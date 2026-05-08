@@ -931,7 +931,7 @@
         <div class="hero-actions">
           <div class="install-cmd">
             <span class="prompt">$</span>
-            <span>npm install r6operators</span>
+            <span>npm install @zerobertoo/r6operators</span>
             <button
               class="copy-btn"
               id="install-copy"
@@ -1240,7 +1240,7 @@
           }
         } catch (_) {}
 
-        const esmSnippet = `import { ${key} } from 'r6operators';
+        const esmSnippet = `import { ${key} } from '@zerobertoo/r6operators';
 
 // Operator metadata
 console.log(${key}.name);   // "${op.name}"
@@ -1402,7 +1402,7 @@ document.body.innerHTML = svg;`
       function copyInstall() {
         const btn = document.getElementById("install-copy")
         navigator.clipboard
-          .writeText("npm install r6operators")
+          .writeText("npm install @zerobertoo/r6operators")
           .then(() => {
             btn.classList.add("copied")
             setTimeout(() => btn.classList.remove("copied"), 2000)
