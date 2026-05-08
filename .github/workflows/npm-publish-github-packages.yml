@@ -4,8 +4,11 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Tag to publish (e.g. v1.0.1)"
+        required: true
 
 jobs:
   build:
