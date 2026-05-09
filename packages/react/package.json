@@ -1,7 +1,7 @@
 {
-  "name": "@zerobertoo/r6operators-react",
+  "name": "@zerobertoo/r6operatorss-react",
   "version": "1.0.0",
-  "description": "React component wrapper for @zerobertoo/r6operators — render R6S operator icons as React elements",
+  "description": "React component wrapper for @zerobertoo/r6operatorss — render R6S operator icons as React elements",
   "keywords": [
     "rainbow six siege",
     "r6",
