@@ -13,8 +13,8 @@ on:
   push:
     branches: [master]
     paths:
-      - 'docs/**'
-      - '.github/workflows/pages.yml'
+      - "docs/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 jobs:
@@ -26,16 +26,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v6
         with:
           path: docs/
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v6

@@ -143,4 +143,3 @@ vite.config.ts.timestamp-*
 .vite/
 
 temp/
-package-lock.json
