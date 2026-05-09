@@ -15,8 +15,14 @@ export default [
       "unicorn/prefer-module": "off",
       "unicorn/prevent-abbreviations": "off",
       "unicorn/numeric-separators-style": "off",
-      "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
-      "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "kebabCase": true, "pascalCase": true } }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
+      ],
+      "unicorn/filename-case": [
+        "error",
+        { cases: { camelCase: true, kebabCase: true, pascalCase: true } },
+      ],
     },
   },
   {

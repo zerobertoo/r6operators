@@ -14,16 +14,29 @@ export interface R6OperatorProps extends React.SVGProps<SVGSVGElement> {
   color?: string
 }
 
-export function R6Operator({ name, size = 24, color = "currentColor", className, style, ...rest }: R6OperatorProps) {
+export function R6Operator({
+  name,
+  size = 24,
+  color = "currentColor",
+  className,
+  style,
+  ...rest
+}: R6OperatorProps) {
   const op = operators[name] as Operator
 
   if (!op || !op.svg) {
     return null
   }
 
-  const { width: _w, height: _h, class: svgClass, ...svgAttrs } = op.svg.attributes as Record<string, unknown>
+  const {
+    width: _w,
+    height: _h,
+    class: svgClass,
+    ...svgAttrs
+  } = op.svg.attributes as Record<string, unknown>
 
-  const combinedClass = [svgClass as string | undefined, className].filter(Boolean).join(" ") || undefined
+  const combinedClass =
+    [svgClass as string | undefined, className].filter(Boolean).join(" ") || undefined
 
   return (
     <svg

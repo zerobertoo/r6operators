@@ -79,7 +79,9 @@
       assert("window.r6operators is defined", typeof r6operators !== "undefined")
 
       // Test 2: has operators
-      const keys = Object.keys(r6operators).filter((k) => r6operators[k] && typeof r6operators[k].toSVG === "function")
+      const keys = Object.keys(r6operators).filter(
+        (k) => r6operators[k] && typeof r6operators[k].toSVG === "function",
+      )
       assert(
         `Has operators (expected ~84, got ${keys.length})`,
         keys.length >= 80,
