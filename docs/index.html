@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -37,14 +37,51 @@
         --def: #38bdf8;
         --def-dim: rgba(56, 189, 248, 0.08);
         --def-glow: rgba(56, 189, 248, 0.22);
-        --mono: "Share Tech Mono", monospace;
+        --mono: "JetBrains Mono", monospace;
         --display: "Rajdhani", sans-serif;
-        --body: "DM Sans", sans-serif;
+        --body: "Inter", sans-serif;
         --panel-w: 380px;
       }
 
       html {
         scroll-behavior: smooth;
+      }
+
+      /* ── SCROLLBARS ── */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+        border-left: 1px solid var(--border);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border2);
+        border-radius: 0;
+        transition: background 0.2s;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--atk);
+        box-shadow: 0 0 8px var(--atk-glow);
+      }
+      ::-webkit-scrollbar-corner {
+        background: var(--bg);
+      }
+
+      /* detail panel scrollbar uses defender accent */
+      .detail-panel::-webkit-scrollbar-thumb:hover {
+        background: var(--def);
+        box-shadow: 0 0 8px var(--def-glow);
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--border2) var(--bg);
+      }
+      .detail-panel {
+        scrollbar-color: var(--border2) var(--surface);
       }
 
       body {
@@ -110,7 +147,7 @@
       }
 
       .hero-eyebrow {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 12px;
         letter-spacing: 0.2em;
         color: var(--text-dim);
@@ -199,7 +236,7 @@
         color: var(--text-dim);
         text-decoration: none;
         transition: all 0.15s;
-        font-family: var(--mono);
+        font-family: var(--body);
         letter-spacing: 0.05em;
         text-transform: uppercase;
       }
@@ -230,7 +267,7 @@
       }
 
       .stat-label {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.16em;
         color: var(--text-dim);
@@ -264,7 +301,7 @@
       }
 
       .pill {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -303,7 +340,7 @@
       }
 
       .filter-select {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -350,7 +387,7 @@
         border: 1px solid var(--border);
         border-radius: 2px;
         padding: 6px 12px 6px 30px;
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.08em;
         color: var(--text);
@@ -366,7 +403,7 @@
 
       .result-count {
         margin-left: auto;
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.1em;
         color: var(--text-dim);
@@ -481,7 +518,7 @@
       }
 
       .op-role-badge {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 10px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -508,7 +545,7 @@
       }
 
       .op-org {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 10px;
         letter-spacing: 0.06em;
         color: var(--text-dim);
@@ -516,7 +553,7 @@
       }
 
       .op-season {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 10px;
         letter-spacing: 0.04em;
         color: var(--text-dim);
@@ -531,7 +568,7 @@
         padding: 80px 20px;
         text-align: center;
         color: var(--text-dim);
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 12px;
         letter-spacing: 0.12em;
       }
@@ -585,7 +622,7 @@
       }
 
       .panel-label {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.16em;
         color: var(--text-dim);
@@ -604,7 +641,7 @@
         align-items: center;
         justify-content: center;
         transition: all 0.15s;
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 14px;
         line-height: 1;
       }
@@ -666,7 +703,7 @@
       }
 
       .pbadge {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 10px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -694,7 +731,7 @@
       }
 
       .section-title {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -717,7 +754,7 @@
       }
 
       .rating-label {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -756,7 +793,7 @@
       }
 
       .meta-key {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -779,7 +816,7 @@
       }
 
       .code-tab {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -821,9 +858,10 @@
         font-size: 12px;
         line-height: 1.7;
         color: #8fa8c0;
-        overflow-x: auto;
-        white-space: pre;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
         tab-size: 2;
+        padding-right: 52px;
       }
 
       .code-copy {
@@ -834,7 +872,7 @@
         border: 1px solid var(--border2);
         border-radius: 2px;
         padding: 4px 10px;
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 10px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -865,7 +903,7 @@
         gap: 12px;
       }
       .footer-text {
-        font-family: var(--mono);
+        font-family: var(--body);
         font-size: 11px;
         letter-spacing: 0.05em;
         color: var(--text-dim);
@@ -976,7 +1014,7 @@
             GitHub
           </a>
           <a
-            href="https://www.npmjs.com/package/r6operators"
+            href="https://www.npmjs.com/package/@zerobertoo/r6operators"
             target="_blank"
             rel="noopener noreferrer"
             class="hero-link"
@@ -1091,7 +1129,7 @@
     </aside>
 
     <!-- UMD BUNDLE -->
-    <script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/r6operators.min.js"></script>
     <script>
       "use strict"
 
@@ -1252,7 +1290,7 @@ const svg = ${key}.toSVG({ width: '64', height: '64' });
 document.body.innerHTML = svg;`
 
         const cdnSnippet = `<!-- Load the bundle -->
-<script src="https://cdn.jsdelivr.net/npm/r6operators/dist/r6operators.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/r6operators.min.js"><\/script>
 
 <script>
   const { ${key} } = r6operators;
@@ -1337,13 +1375,13 @@ document.body.innerHTML = svg;`
             <div id="pane-esm" class="code-pane active">
               <div class="code-block">
                 <pre>${esc(esmSnippet)}</pre>
-                <button class="code-copy" onclick="copyCode(this,${JSON.stringify(esmSnippet)})">Copy</button>
+                <button class="code-copy" data-snippet="${esc(esmSnippet)}" onclick="copyCode(this)">Copy</button>
               </div>
             </div>
             <div id="pane-cdn" class="code-pane">
               <div class="code-block">
                 <pre>${esc(cdnSnippet)}</pre>
-                <button class="code-copy" onclick="copyCode(this,${JSON.stringify(cdnSnippet)})">Copy</button>
+                <button class="code-copy" data-snippet="${esc(cdnSnippet)}" onclick="copyCode(this)">Copy</button>
               </div>
             </div>
           </div>
@@ -1384,7 +1422,8 @@ document.body.innerHTML = svg;`
           .replace(/"/g, "&quot;")
       }
 
-      function copyCode(btn, text) {
+      function copyCode(btn) {
+        const text = btn.dataset.snippet
         navigator.clipboard
           .writeText(text)
           .then(() => {
