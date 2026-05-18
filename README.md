@@ -10,6 +10,12 @@
 [![npm downloads](https://img.shields.io/npm/dw/%40zerobertoo%2Fr6operators.svg?style=for-the-badge)](https://www.npmjs.com/package/@zerobertoo/r6operators)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/%40zerobertoo%2Fr6operators?style=for-the-badge)](https://bundlephobia.com/package/@zerobertoo/r6operators)
 
+**React package**
+
+[![npm version](https://img.shields.io/npm/v/%40zerobertoo%2Fr6operators-react.svg?style=for-the-badge)](https://www.npmjs.com/package/@zerobertoo/r6operators-react)
+[![npm downloads](https://img.shields.io/npm/dw/%40zerobertoo%2Fr6operators-react.svg?style=for-the-badge)](https://www.npmjs.com/package/@zerobertoo/r6operators-react)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/%40zerobertoo%2Fr6operators-react?style=for-the-badge)](https://bundlephobia.com/package/@zerobertoo/r6operators-react)
+
 **[Live demo →](https://zerobertoo.github.io/r6operators)**
 
 r6operators is a collection of high-quality vectorized Rainbow Six: Siege Operator icons & metadata for Node.js.

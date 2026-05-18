@@ -1,0 +1,68 @@
+name: New Season Reminder
+
+on:
+  schedule:
+    # Y11S2 — adjust date when Ubisoft announces the next season
+    # Format: cron runs at 09:00 UTC on the expected release day
+    - cron: "0 9 10 9 2026"  # placeholder: Sep 10 2026
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season code (e.g. Y11S2)"
+        required: true
+      season_name:
+        description: "Operation name (e.g. Operation Steel Wave)"
+        required: true
+
+jobs:
+  open-season-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Resolve season info
+        id: info
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "season=${{ github.event.inputs.season }}" >> "$GITHUB_OUTPUT"
+            echo "name=${{ github.event.inputs.season_name }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "season=Y11S2" >> "$GITHUB_OUTPUT"
+            echo "name=New Season" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open season checklist issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const season = "${{ steps.info.outputs.season }}";
+            const name   = "${{ steps.info.outputs.name }}";
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              title: `[Season] Add ${season} operators — ${name}`,
+              labels: ["new-operator", "season"],
+              body: [
+                `## ${season} — ${name}`,
+                "",
+                "A new Rainbow Six: Siege season has launched. Complete the checklist below to keep the package up to date.",
+                "",
+                "### Checklist",
+                "",
+                "- [ ] Identify new operators from the official patch notes",
+                "- [ ] Create `operators/<name>/` directory with `<name>.svg` and `index.ts`",
+                "- [ ] Fill in all `IOperator` fields (name, role, org, squad, ratings, meta, bio)",
+                "- [ ] Set `season` to `\"" + season + "\"`",
+                "- [ ] Update `CURRENT_SEASON` in `scripts/config.ts` to `\"" + season + "\"`",
+                "- [ ] Run `npm run build` and verify the new operator appears in `dist/`",
+                "- [ ] Run `npm run test` — all tests pass",
+                "- [ ] Update `CHANGELOG.md` with the new operator(s)",
+                "- [ ] Open a PR with title `feat(operators): add <name> (${season})`",
+                "- [ ] After merge, bump the version and trigger the `publish` workflow",
+                "",
+                "### Next season date",
+                "",
+                "Update the cron schedule in `.github/workflows/new-season.yml` once the next season date is announced.",
+              ].join("\n"),
+            });
