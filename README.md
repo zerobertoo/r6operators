@@ -247,6 +247,10 @@ getSVGIcon(alibi, { class: "large" })
 // <svg class="r6operators r6operators-alibi large" ... >...</svg>
 ```
 
+## Roadmap
+
+Curious about what's coming next? Check out the [Roadmap](./ROADMAP.md) to see planned features — weapons data, maps data, React wrappers, and more.
+
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/zerobertoo/r6operators/blob/master/CONTRIBUTING.md).
