@@ -160,47 +160,6 @@ An object containing all data about the operator, including the svg contents and
 >
 > Please keep in mind that the properties `bio`, `meta` and `ratings` are not available on recruits.
 
-##### Example:
-
-```js
-r6operators.alibi
-// {
-// 	  id: 'alibi',
-// 	  name: 'Alibi',
-// 	  role: 'Defender',
-// 	  org: 'GIS',
-//    squad: 'VIPERSTRIKE',
-// 	  ratings: {
-// 		  health: 1,
-// 		  speed: 3,
-// 		  difficulty: 3
-// 	  },
-// 	  meta: {
-// 		  gender: 'f',
-// 		  country: 'it',
-// 		  season: 'Y3S2',
-// 		  height: 171,
-// 		  weight: 63,
-//      price: 10000
-// 	  },
-// 	  bio: {
-// 		  real_name: 'Aria de Luca',
-// 		  birthplace: 'Tripoli, Lybia'
-// 	  },
-// 	  svg: {
-// 		  contents: [SVG Contents],
-// 		  attributes: {
-// 			  xmlns: 'http://www.w3.org/2000/svg',
-// 			  viewBox: '0 0 350 350',
-// 			  style: 'enable-background:new 0 0 350 350',
-// 			  space: 'preserve',
-// 			  class: 'r6operators r6operators-alibi'
-// 		  }
-// 	  },
-// 	  toSVG: [Function]
-// }
-```
-
 ---
 
 ### `r6operators.[name].toSVG([attrs])`
@@ -254,8 +213,6 @@ Curious about what's coming next? Check out the [Roadmap](./ROADMAP.md) to see p
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/zerobertoo/r6operators/blob/master/CONTRIBUTING.md).
-
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/zerobertoo/r6operators/blob/master/README.md)
 
 ## Credits
 
