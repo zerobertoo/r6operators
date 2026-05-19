@@ -57,6 +57,6 @@
     "@zerobertoo/r6operators": "file:../..",
     "react": "^18.3.1",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.3"
+    "typescript": "^6.0.3"
   }
 }
