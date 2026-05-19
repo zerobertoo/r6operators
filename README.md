@@ -1,4 +1,4 @@
-![r6operators Header Image](https://i.imgur.com/1qhhXYK.png)
+![r6operators Banner](docs/banner.jpg)
 
 # r6operators
 
