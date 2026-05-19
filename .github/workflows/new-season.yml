@@ -4,7 +4,7 @@ on:
   schedule:
     # Y11S2 — adjust date when Ubisoft announces the next season
     # Format: cron runs at 09:00 UTC on the expected release day
-    - cron: "0 9 10 9 2026"  # placeholder: Sep 10 2026
+    - cron: "0 9 10 9 *"  # placeholder: Sep 10 2026
   workflow_dispatch:
     inputs:
       season:
