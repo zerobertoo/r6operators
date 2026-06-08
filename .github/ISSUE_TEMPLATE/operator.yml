@@ -1,7 +1,7 @@
 name: Operator
 description: Add an operator
 title: "[Operation OPERATION_NAME] OPERATOR_NAME"
-labels: ["enhancement"]
+labels: ["enhancement", "new-operator"]
 body:
   - type: input
     id: name
@@ -170,7 +170,7 @@ body:
     id: icon
     attributes:
       label: Icon
-      description: "Highiest resolution of operator icon you could find, in-game lossless screenshot, asset packs."
+      description: "Highest resolution of operator icon you could find, in-game lossless screenshot, asset packs."
       value: |
         <details>
         <summary>Expand</summary>
