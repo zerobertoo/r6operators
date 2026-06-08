@@ -1,16 +1,31 @@
-# Contribution Guidelines
+# Contributing to r6operators
 
-Thank you for your interest to contribute to this project. You're awesome! :+1:
+Thank you for your interest in contributing! This project is maintained by the community — every correction, new operator, and code improvement makes a difference.
 
-Below here are some guidelines for contributing to this project, please read them before creating a pull request/issue on Github.
+## How can I help?
 
-Feel free to improve these guidelines with a pull request! 😄
+There are two ways to contribute:
 
-## Adding a New Operator
+- **Fan of the game?** You can add missing operators, correct wrong data, or submit icon references — no coding required.
+- **Developer?** You can improve the API, fix bugs, add types, or work on the React package.
 
-The most common contribution is adding an operator from a new season. Here's an end-to-end example using **Alibi** (Y3S2) as the reference.
+Browse open tasks: look for issues labelled [`good first issue`](https://github.com/zerobertoo/r6operators/labels/good%20first%20issue), [`new-operator`](https://github.com/zerobertoo/r6operators/labels/new-operator), or [`data-correction`](https://github.com/zerobertoo/r6operators/labels/data-correction).
 
-### 1. Create the operator directory
+---
+
+## Fan track: contributing game data
+
+You do not need to run the project locally for data-only contributions. If you get stuck at any step, open an issue and we will help.
+
+### Reporting incorrect data
+
+Found a wrong height, weight, country, or rating? Use the [Data Correction issue template](https://github.com/zerobertoo/r6operators/issues/new?template=data_correction.yml). Fill in the operator name, the wrong field, the current and correct values, and a source link. A maintainer will apply the fix or guide you through a PR.
+
+### Adding a new operator
+
+Here is a complete walkthrough using **Alibi** (Y3S2) as the example.
+
+**1. Create the operator directory**
 
 ```
 operators/
@@ -19,7 +34,7 @@ operators/
     └── index.ts      ← operator metadata
 ```
 
-### 2. Write the metadata file
+**2. Write the metadata file**
 
 `operators/alibi/index.ts`:
 
@@ -42,6 +57,10 @@ export const alibi: IOperator = {
     season: "Y3S2",
     height: 171,
     weight: 63,
+    price: {
+      renown: 10000,
+      r6credits: 240,
+    },
   },
   bio: {
     realName: "Aria de Luca",
@@ -52,40 +71,146 @@ export const alibi: IOperator = {
 
 Key rules:
 
-- The exported `const` name must match the directory name (e.g. `alibi` for `operators/alibi/`)
-- `role` is either `"Attacker"` or `"Defender"`
-- `season` follows the format `"YxSx"` (e.g. `"Y10S1"`) or `"Release"` for launch operators
+- The exported `const` name must match the directory name (`alibi` for `operators/alibi/`)
+- `role` is `"Attacker"` or `"Defender"`
+- `season` follows `"YxSx"` (e.g. `"Y10S1"`) or `"Release"` for launch operators
+- `price` is optional — omit it if unknown
 - Recruits omit `bio`, `meta`, and `ratings` — see `operators/recruit_blue/index.ts` for the shape
-- `IOperator` and all sub-types are defined in `src/types/operator.d.ts`
+- All types are defined in `src/types/operator.d.ts`
 
-### 3. Add the SVG icon
+**3. Add the SVG icon**
 
-Place the raw SVG at `operators/alibi/alibi.svg`. Requirements:
+See [SVG icon guidelines](#svg-icon-guidelines) below.
 
-- `viewBox="0 0 350 350"` — all icons share this viewport
-- No inline `<script>` or external references (security)
-- The build pipeline runs SVGO automatically; you do not need to pre-optimize
-
-### 4. Run the build
+**4. Run the build**
 
 ```bash
 npm run build
 ```
 
-This regenerates `operators/index.ts` (the barrel file — do not edit manually), optimizes the SVG, and produces the bundles in `dist/`.
+This regenerates the barrel file (`operators/index.ts` — do not edit manually), optimizes the SVG, and produces the bundles in `dist/`.
 
-### 5. Verify
+**5. Verify**
 
 ```bash
 npm run test
 ```
 
-Then check that your operator appears in `dist/icons/alibi.svg` and that `import { alibi } from "@zerobertoo/r6operators"` resolves correctly.
+Check that your operator appears in `dist/icons/alibi.svg`.
 
-### 6. Open a pull request
+**6. Open a pull request**
 
 Commit using [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```bash
 git commit -m "feat(operators): add Alibi (Y3S2)"
 ```
+
+### SVG icon guidelines
+
+- `viewBox="0 0 350 350"` — all icons share this viewport
+- No inline `<script>` tags or external references (security requirement)
+- The build pipeline runs SVGO automatically — you do not need to pre-optimize
+- If you cannot produce an SVG yourself, open a [new operator issue](https://github.com/zerobertoo/r6operators/issues/new?template=operator.yml) and attach the highest-resolution PNG references you can find (in-game screenshots, official asset packs). A contributor with SVG skills can take it from there.
+
+---
+
+## Developer track: contributing code
+
+### Local setup
+
+Prerequisites: Node.js 22+ and npm 10+.
+
+```bash
+git clone https://github.com/zerobertoo/r6operators.git
+cd r6operators
+npm install
+```
+
+Husky hooks are installed automatically. Commits must follow [Conventional Commits](https://www.conventionalcommits.org/) — the `commit-msg` hook will reject non-conforming messages.
+
+### Build pipeline
+
+```bash
+npm run build
+```
+
+Runs four steps in sequence (see `scripts/build.ts`):
+
+1. **SVGO** — optimizes every SVG in `operators/*/` → `temp/svg/`
+2. **Barrel** — regenerates `operators/index.ts` by scanning subdirectories (do not edit this file manually)
+3. **Rollup** — bundles into `dist/` (ESM `.mjs`, CJS `.js`, UMD `.min.js`)
+4. **dts** — generates `dist/index.d.ts`
+
+After bundling, optimized SVGs are copied from `temp/svg/` to `dist/icons/`.
+
+### Running tests
+
+```bash
+npm run test
+```
+
+Builds first if `dist/` is missing. To run a single test file:
+
+```bash
+npx jest src/_tests_/functions.test.ts
+```
+
+### React package
+
+The React package lives in `packages/react/` and uses **tsup** independently.
+
+```bash
+npm run build --workspace=packages/react
+```
+
+It depends on the root package as a peer dependency. When developing locally, `npm install` in the root wires the workspace link automatically.
+
+### Adding an operator (dev framing)
+
+Same steps as the fan track, with one addition: run `npm run lint` before opening your PR.
+
+```bash
+npm run lint
+```
+
+---
+
+## Good first issues
+
+Not sure where to start? Here are concrete entry points:
+
+| Label                                                                                       | What it means                                   | Effort      |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
+| [`good first issue`](https://github.com/zerobertoo/r6operators/labels/good%20first%20issue) | Small, well-scoped tasks — great for a first PR | Low         |
+| [`data-correction`](https://github.com/zerobertoo/r6operators/labels/data-correction)       | Fix a known wrong value in an existing operator | Low         |
+| [`new-operator`](https://github.com/zerobertoo/r6operators/labels/new-operator)             | Add an operator from a past season              | Medium      |
+| [`enhancement`](https://github.com/zerobertoo/r6operators/labels/enhancement)               | New features or API improvements                | Medium–High |
+
+If you want to work on something, leave a comment on the issue so others know it's taken.
+
+---
+
+## Commit conventions
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/). The `commit-msg` hook enforces this.
+
+Common scopes used in this project:
+
+| Prefix             | When to use               |
+| ------------------ | ------------------------- |
+| `feat(operators):` | Adding a new operator     |
+| `fix(operators):`  | Correcting operator data  |
+| `feat:` / `fix:`   | Code changes              |
+| `chore:`           | Tooling, CI, dependencies |
+| `docs:`            | Documentation only        |
+
+Examples:
+
+```bash
+git commit -m "feat(operators): add Alibi (Y3S2)"
+git commit -m "fix(operators): correct Sledge height to 195cm"
+git commit -m "fix: handle missing price field in getSVGIcon"
+```
+
+Feel free to improve these guidelines with a pull request!
