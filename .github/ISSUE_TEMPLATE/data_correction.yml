@@ -1,0 +1,76 @@
+name: Data Correction
+description: Report incorrect data for an existing operator
+title: "[Data] Fix <operator> — <field>"
+labels: ["data-correction", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a data error in an existing operator — wrong stat, wrong name, wrong country, etc.
+        Please include a source so we can verify the correction.
+
+  - type: input
+    id: operator
+    attributes:
+      label: Operator
+      description: "The operator identifier (matches the directory name in `operators/`)."
+      placeholder: "ex: alibi, thermite, sledge"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: field
+    attributes:
+      label: Incorrect field
+      description: "Which field contains the wrong value?"
+      options:
+        - name
+        - role
+        - org
+        - squad
+        - ratings.health
+        - ratings.speed
+        - ratings.difficulty
+        - meta.gender
+        - meta.country
+        - meta.season
+        - meta.height
+        - meta.weight
+        - meta.price.renown
+        - meta.price.r6credits
+        - bio.realName
+        - bio.birthplace
+    validations:
+      required: true
+
+  - type: input
+    id: current-value
+    attributes:
+      label: Current value
+      description: "What the package currently says."
+      placeholder: "ex: 170"
+    validations:
+      required: true
+
+  - type: input
+    id: correct-value
+    attributes:
+      label: Correct value
+      description: "What it should be."
+      placeholder: "ex: 171"
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: "Link or screenshot proving the correct value (official patch notes, Ubisoft site, in-game screenshot)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: "Anything else relevant."
