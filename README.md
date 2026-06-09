@@ -222,6 +222,8 @@ For more info on how to contribute please see the [contribution guidelines](http
 - [@joeyfjj](https://twitter.com/joeyfjj) for creating the Goyo, Mute, Smoke, Jäger and Blitz icons.
 - [@danielwerg](https://github.com/danielwerg/) for creating the Fenrir, Brava and Solis icons and his awesome price calculator function.
 - [@LaxisB](https://github.com/LaxisB/), [@NaughtyMuppet](https://github.com/NaughtyMuppet) & [@danielwerg](https://github.com/danielwerg) for general help on this project. <3
+- [@AlmostSuspense](https://github.com/AlmostSuspense) for updating Zofia's information.
+- [@tyceffe](https://github.com/tyceffe) for updating the icons for Dokkaebi and Thatcher.
 
 ## License
 
