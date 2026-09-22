@@ -6,9 +6,9 @@ export const noor: IOperator = {
   org: "UNIT 777",
   squad: "GHOSTEYES",
   ratings: {
-    health: 3,
-    speed: 3,
-    difficulty: 3,
+    health: 2,
+    speed: 2,
+    difficulty: 2,
   },
   meta: {
     gender: "m",
