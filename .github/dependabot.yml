@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # 0 = only security PRs (security updates ignore this limit)
+    open-pull-requests-limit: 0
+    commit-message:
+      prefix: "fix"
+      include: "scope"
