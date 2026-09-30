@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -103,474 +103,586 @@
         opacity: 1;
       }
 
-      /* ── HERO ── */
+      /* ── HERO (same world: mat + label tape) ── */
       .hero {
         position: relative;
-        padding: 72px 48px 52px;
-        border-bottom: 1px solid var(--border);
-        overflow: hidden;
+        padding: 64px 48px 56px;
+        background-color: #0d5c3f;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size:
+          96px 96px,
+          96px 96px,
+          24px 24px,
+          24px 24px;
       }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(160deg, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
-          repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.012) 39px,
-            rgba(255, 255, 255, 0.012) 40px
-          );
-        pointer-events: none;
-      }
-
-      /* decorative corner brackets on hero */
-      .hero::after {
-        content: "";
-        position: absolute;
-        top: 24px;
-        right: 48px;
-        width: 80px;
-        height: 80px;
-        border-top: 1px solid rgba(245, 158, 11, 0.2);
-        border-right: 1px solid rgba(245, 158, 11, 0.2);
-        pointer-events: none;
-      }
-
       .hero-inner {
-        max-width: 1200px;
+        max-width: 1240px;
         margin: 0 auto;
-        position: relative;
       }
-
-      .hero-eyebrow {
-        font-family: var(--body);
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        color: var(--text-dim);
-        text-transform: uppercase;
-        margin-bottom: 18px;
-      }
-
       .hero-title {
-        font-family: var(--display);
-        font-size: clamp(52px, 9vw, 108px);
+        display: flex;
+        align-items: stretch;
+        font-family: "Barlow Condensed", "Rajdhani", sans-serif;
         font-weight: 700;
-        line-height: 0.88;
+        font-size: clamp(56px, 10vw, 120px);
+        line-height: 0.9;
         letter-spacing: -0.01em;
-        margin-bottom: 22px;
+        text-transform: uppercase;
+        color: #e7ecea;
       }
-
       .title-r6 {
-        color: var(--atk);
+        background: #e7ecea;
+        color: #121513;
+        padding: 0.04em 0.12em 0;
+        margin-right: 0.1em;
       }
       .title-ops {
-        color: var(--text);
+        padding-top: 0.04em;
       }
-
       .hero-tagline {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--text-dim);
-        max-width: 500px;
-        line-height: 1.65;
-        margin-bottom: 36px;
+        margin-top: 22px;
+        max-width: 52ch;
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.55;
+        color: #e7ecea;
       }
-
       .hero-actions {
+        margin-top: 28px;
         display: flex;
-        gap: 10px;
         flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 44px;
+        gap: 12px;
+        align-items: stretch;
       }
-
       .install-cmd {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         gap: 10px;
-        background: var(--surface2);
-        border: 1px solid var(--border2);
-        border-radius: 3px;
-        padding: 10px 16px;
+        padding: 9px 12px;
+        background: #f4f7f5;
+        color: #121513;
+        border: 1px solid #121513;
         font-family: var(--mono);
         font-size: 13px;
-        color: var(--atk);
       }
-
       .install-cmd .prompt {
-        color: var(--text-dim);
-        user-select: none;
+        color: #3d4742;
       }
-
       .copy-btn {
-        background: none;
-        border: none;
+        display: inline-flex;
+        background: transparent;
+        border: 1px solid #121513;
+        color: #121513;
+        padding: 4px 6px;
         cursor: pointer;
-        color: var(--text-dim);
-        padding: 2px 4px;
-        display: flex;
-        align-items: center;
-        border-radius: 2px;
-        transition: color 0.15s;
       }
-      .copy-btn:hover {
-        color: var(--text);
-      }
+      .copy-btn:hover,
       .copy-btn.copied {
-        color: #4ade80;
+        background: #121513;
+        color: #f4f7f5;
       }
-
       .hero-link {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
-        padding: 9px 18px;
-        border: 1px solid var(--border2);
-        border-radius: 3px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text-dim);
+        gap: 8px;
+        padding: 9px 16px;
+        border: 1px solid #e7ecea;
+        color: #e7ecea;
         text-decoration: none;
-        transition: all 0.15s;
-        font-family: var(--body);
-        letter-spacing: 0.05em;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
+        transition: background-color 0.15s;
       }
       .hero-link:hover {
-        color: var(--text);
-        background: var(--surface2);
-        border-color: var(--border2);
+        background: rgba(231, 236, 234, 0.16);
+      }
+      .install-cmd button:focus-visible,
+      .hero-link:focus-visible {
+        outline: 2px solid #e7ecea;
+        outline-offset: 2px;
+      }
+      .hero-spec {
+        margin-top: 30px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: #e7ecea;
       }
 
-      .hero-stats {
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
+      /* ── SPECIMEN SHEET: ruler toolbar ── */
+      :root {
+        --mat: #0d5c3f;
+        --mat-line: rgba(255, 255, 255, 0.11);
+        --mat-line2: rgba(255, 255, 255, 0.05);
+        --sheet: #e7ecea;
+        --sheet-field: #f4f7f5;
+        --ink: #121513;
+        --ink-soft: #3d4742;
+        --ink-atk: #b92a06;
+        --ink-def: #1849c9;
+        --led: #ff5a2a;
+        --cond: "Barlow Condensed", "Rajdhani", sans-serif;
       }
 
-      .hero-stat {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+      ::selection {
+        background: var(--ink);
+        color: var(--sheet);
       }
 
-      .stat-value {
-        font-family: var(--display);
-        font-size: 36px;
-        font-weight: 700;
-        color: var(--text);
-        line-height: 1;
-      }
-
-      .stat-label {
-        font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        color: var(--text-dim);
-        text-transform: uppercase;
-      }
-
-      /* ── FILTERS ── */
       .filters {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(7, 8, 9, 0.88);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        padding: 13px 48px;
+        background-color: var(--sheet);
+        background-image:
+          repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 40px),
+          repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 8px);
+        background-size:
+          100% 10px,
+          100% 5px;
+        background-position: left bottom;
+        background-repeat: no-repeat;
+        color: var(--ink);
+        border-bottom: 2px solid var(--ink);
+        padding: 12px 48px 20px;
       }
 
       .filters-inner {
-        max-width: 1200px;
+        max-width: 1240px;
         margin: 0 auto;
         display: flex;
-        gap: 10px;
+        gap: 10px 18px;
         align-items: center;
         flex-wrap: wrap;
       }
 
-      .filter-pills {
+      .ctl-group {
         display: flex;
-        gap: 3px;
+        align-items: center;
+        gap: 4px;
+      }
+      .ctl-label {
+        font-family: var(--cond);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-right: 4px;
       }
 
-      .pill {
-        font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.1em;
+      .pill,
+      .ctl {
+        font-family: var(--cond);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 6px 14px;
-        border: 1px solid var(--border);
-        border-radius: 2px;
+        padding: 5px 11px;
+        border: 1px solid var(--ink);
+        border-radius: 0;
         background: transparent;
-        color: var(--text-dim);
+        color: var(--ink);
         cursor: pointer;
-        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition:
+          background-color 0.15s,
+          color 0.15s;
       }
-      .pill:hover {
-        border-color: var(--border2);
-        color: var(--text);
+      .pill:hover,
+      .ctl:hover {
+        background: rgba(18, 21, 19, 0.1);
       }
-      .pill.active[data-role=""] {
-        border-color: rgba(184, 200, 216, 0.4);
-        color: var(--text);
+      .pill.active,
+      .ctl[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--sheet);
       }
       .pill.active[data-role="Attacker"] {
-        border-color: var(--atk);
-        color: var(--atk);
-        background: var(--atk-dim);
+        background: var(--ink-atk);
+        border-color: var(--ink-atk);
       }
       .pill.active[data-role="Defender"] {
-        border-color: var(--def);
-        color: var(--def);
-        background: var(--def-dim);
+        background: var(--ink-def);
+        border-color: var(--ink-def);
+      }
+      .pill:focus-visible,
+      .ctl:focus-visible,
+      .filter-select:focus-visible,
+      .search-input:focus-visible,
+      .cell:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
       }
 
-      .filter-sep {
-        width: 1px;
-        height: 22px;
-        background: var(--border);
+      .led {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid currentColor;
         flex-shrink: 0;
+      }
+      .ctl[aria-pressed="true"] .led {
+        background: var(--led);
+        border-color: var(--led);
       }
 
       .filter-select {
-        font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.1em;
+        font-family: var(--cond);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 2px;
-        color: var(--text-dim);
-        padding: 6px 28px 6px 10px;
+        background-color: var(--sheet-field);
+        border: 1px solid var(--ink);
+        border-radius: 0;
+        color: var(--ink);
+        padding: 5px 28px 5px 10px;
         cursor: pointer;
         appearance: none;
         -webkit-appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234a5a6a'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23121513'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 10px center;
-        transition: all 0.15s;
-      }
-      .filter-select:focus {
-        outline: none;
-        border-color: var(--border2);
-        color: var(--text);
       }
       .filter-select option {
-        background: #111519;
-        color: #b8c8d8;
+        background: var(--sheet-field);
+        color: var(--ink);
       }
 
       .search-wrap {
         flex: 1;
         min-width: 160px;
-        max-width: 280px;
+        max-width: 260px;
         position: relative;
       }
       .search-icon {
         position: absolute;
-        left: 10px;
+        left: 9px;
         top: 50%;
         transform: translateY(-50%);
-        color: var(--text-dim);
+        color: var(--ink);
         pointer-events: none;
       }
       .search-input {
         width: 100%;
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 2px;
-        padding: 6px 12px 6px 30px;
-        font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.08em;
-        color: var(--text);
-        transition: border-color 0.15s;
-      }
-      .search-input:focus {
-        outline: none;
-        border-color: var(--border2);
+        background: var(--sheet-field);
+        border: 1px solid var(--ink);
+        border-radius: 0;
+        padding: 5px 10px 5px 28px;
+        font-family: var(--cond);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        color: var(--ink);
       }
       .search-input::placeholder {
-        color: var(--text-dim);
+        color: var(--ink-soft);
       }
 
+      .readout {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        min-width: 22ch;
+      }
       .result-count {
         margin-left: auto;
-        font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        color: var(--text-dim);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--ink-soft);
         white-space: nowrap;
       }
 
-      /* ── GRID ── */
-      .grid-wrap {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 32px 48px 64px;
+      /* ── SPECIMEN SHEET: mat + carrier sheet ── */
+      .mat {
+        background-color: var(--mat);
+        background-image:
+          linear-gradient(var(--mat-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--mat-line) 1px, transparent 1px),
+          linear-gradient(var(--mat-line2) 1px, transparent 1px),
+          linear-gradient(90deg, var(--mat-line2) 1px, transparent 1px);
+        background-size:
+          96px 96px,
+          96px 96px,
+          24px 24px,
+          24px 24px;
+        padding: 40px 48px 88px;
       }
 
-      .ops-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
-        gap: 10px;
-      }
-
-      .op-card {
+      .sheet {
+        --icon: 64px;
         position: relative;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 2px;
-        padding: 22px 14px 16px;
-        cursor: pointer;
-        transition:
-          transform 0.2s,
-          border-color 0.2s,
-          box-shadow 0.2s;
+        max-width: 1240px;
+        margin: 0 auto;
+        background: rgba(231, 236, 234, 0.92);
+        outline: 1px solid rgba(255, 255, 255, 0.55);
+        outline-offset: -1px;
+        color: var(--ink);
+        padding: 28px 40px 52px;
+        box-shadow:
+          0 18px 40px -12px rgba(0, 0, 0, 0.55),
+          0 2px 6px rgba(0, 0, 0, 0.35);
+      }
+
+      .crop {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 0 solid rgba(255, 255, 255, 0.75);
+        pointer-events: none;
+      }
+      .crop.tl {
+        top: -30px;
+        left: -30px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+      }
+      .crop.tr {
+        top: -30px;
+        right: -30px;
+        border-left-width: 1px;
+        border-bottom-width: 1px;
+      }
+      .crop.bl {
+        bottom: -30px;
+        left: -30px;
+        border-right-width: 1px;
+        border-top-width: 1px;
+      }
+      .crop.br {
+        bottom: -30px;
+        right: -30px;
+        border-left-width: 1px;
+        border-top-width: 1px;
+      }
+
+      .sheet-head {
+        display: flex;
+        gap: 24px 48px;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: 22px;
+        margin-bottom: 8px;
+        padding-right: 40px;
+        border-bottom: 2px solid var(--ink);
+        position: relative;
+      }
+      .sheet-title {
+        font-family: var(--cond);
+        font-weight: 700;
+        font-size: clamp(36px, 5vw, 56px);
+        line-height: 0.88;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        text-wrap: balance;
+        color: var(--ink);
+      }
+      .sheet-note {
+        max-width: 46ch;
+        font-family: var(--body);
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+      .sheet-spec {
+        margin-top: 10px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+      }
+      .reg-target {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 26px;
+        height: 26px;
+        color: var(--ink);
+      }
+
+      .band {
+        margin-top: 34px;
+      }
+      .band[data-role="Attacker"] {
+        --ink-role: var(--ink-atk);
+      }
+      .band[data-role="Defender"] {
+        --ink-role: var(--ink-def);
+      }
+      .band[data-role="Recruit"] {
+        --ink-role: var(--ink);
+      }
+      .band-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+        color: var(--ink-role, var(--ink));
+      }
+      .band-name {
+        font-family: var(--cond);
+        font-weight: 700;
+        font-size: 26px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .band-n {
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .band-rule {
+        flex: 1;
+        height: 3px;
+        background: currentColor;
+      }
+
+      .band-grid {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(calc(var(--icon) + 52px), 1fr));
+      }
+
+      .cell {
+        position: relative;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 9px;
+        padding: 26px 6px 18px;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        color: var(--ink);
+        cursor: pointer;
         text-align: center;
-        outline: none;
+        font: inherit;
+        transition: background-color 0.15s;
+      }
+      .cell[data-role="Attacker"] {
+        --ink-role: var(--ink-atk);
+      }
+      .cell[data-role="Defender"] {
+        --ink-role: var(--ink-def);
+      }
+      .cell[data-role="Recruit"] {
+        --ink-role: var(--ink);
+      }
+      .cell:hover {
+        background-color: color-mix(in srgb, var(--ink-role) 9%, transparent);
+      }
+      .cell.copied {
+        background-color: color-mix(in srgb, var(--ink-role) 18%, transparent);
+      }
+      .cell.copied .cell-name {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+      .cell.active {
+        background-color: color-mix(in srgb, var(--ink-role) 15%, transparent);
+      }
+      .cell:hover .cell-name,
+      .cell.active .cell-name {
+        color: var(--ink-role);
+      }
+      .cell.active .cell-name {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
       }
 
-      /* 4-corner bracket effect via pseudo elements + box-shadow trick */
-      .op-card::before,
-      .op-card::after {
+      /* burnish: hatch sweep that "rubs" the symbol down */
+      .cell::after {
         content: "";
         position: absolute;
-        width: 9px;
-        height: 9px;
-        transition: border-color 0.2s;
+        inset: 6px;
+        background: repeating-linear-gradient(
+          115deg,
+          rgba(18, 21, 19, 0.24) 0 1px,
+          transparent 1px 4px
+        );
+        clip-path: inset(0 100% 0 0);
+        pointer-events: none;
       }
-      .op-card::before {
-        top: -1px;
-        left: -1px;
-        border-top: 2px solid transparent;
-        border-left: 2px solid transparent;
+      .cell.rub::after {
+        animation: burnish 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
-      .op-card::after {
-        bottom: -1px;
-        right: -1px;
-        border-bottom: 2px solid transparent;
-        border-right: 2px solid transparent;
+      @keyframes burnish {
+        0% {
+          clip-path: inset(0 100% 0 0);
+          opacity: 1;
+        }
+        55% {
+          clip-path: inset(0 0 0 0);
+          opacity: 1;
+        }
+        100% {
+          clip-path: inset(0 0 0 0);
+          opacity: 0;
+        }
       }
-
-      .op-card[data-role="Attacker"]:hover,
-      .op-card[data-role="Attacker"]:focus-visible {
-        border-color: rgba(245, 158, 11, 0.35);
-        box-shadow:
-          0 4px 24px var(--atk-glow),
-          inset 0 0 24px rgba(245, 158, 11, 0.025);
-        transform: translateY(-3px);
-      }
-      .op-card[data-role="Attacker"]:hover::before,
-      .op-card[data-role="Attacker"]:hover::after,
-      .op-card[data-role="Attacker"]:focus-visible::before,
-      .op-card[data-role="Attacker"]:focus-visible::after {
-        border-color: var(--atk);
-      }
-
-      .op-card[data-role="Defender"]:hover,
-      .op-card[data-role="Defender"]:focus-visible {
-        border-color: rgba(56, 189, 248, 0.35);
-        box-shadow:
-          0 4px 24px var(--def-glow),
-          inset 0 0 24px rgba(56, 189, 248, 0.025);
-        transform: translateY(-3px);
-      }
-      .op-card[data-role="Defender"]:hover::before,
-      .op-card[data-role="Defender"]:hover::after,
-      .op-card[data-role="Defender"]:focus-visible::before,
-      .op-card[data-role="Defender"]:focus-visible::after {
-        border-color: var(--def);
+      @media (prefers-reduced-motion: reduce) {
+        .cell.rub::after {
+          animation: none;
+        }
       }
 
-      .op-icon {
-        width: 64px;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .cell-icon {
+        outline: 1px dashed rgba(18, 21, 19, 0.55);
+        outline-offset: 6px;
+        width: var(--icon);
+        height: var(--icon);
         flex-shrink: 0;
+        transition:
+          width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+          height 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .op-icon svg {
-        width: 64px !important;
-        height: 64px !important;
+      .cell-icon svg {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
-
-      .op-name {
-        font-family: var(--display);
-        font-size: 13px;
+      .cell-name {
+        font-family: var(--cond);
+        font-size: 14px;
         font-weight: 600;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
-        color: var(--text);
-        line-height: 1.1;
+        line-height: 1.05;
+        color: var(--ink);
+        text-wrap: balance;
       }
-
-      .op-role-badge {
-        font-family: var(--body);
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 2px 7px;
-        border-radius: 1px;
-      }
-      .badge-atk {
-        color: var(--atk);
-        border: 1px solid rgba(245, 158, 11, 0.3);
-        background: var(--atk-dim);
-      }
-      .badge-def {
-        color: var(--def);
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        background: var(--def-dim);
-      }
-
-      .op-meta-row {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .op-org {
-        font-family: var(--body);
-        font-size: 10px;
-        letter-spacing: 0.06em;
-        color: var(--text-dim);
-        text-transform: uppercase;
-      }
-
-      .op-season {
-        font-family: var(--body);
-        font-size: 10px;
-        letter-spacing: 0.04em;
-        color: var(--text-dim);
-        background: var(--surface2);
-        border: 1px solid var(--border);
-        padding: 1px 5px;
-        border-radius: 1px;
+      .cell-code {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: var(--ink-soft);
       }
 
       .empty-state {
-        grid-column: 1 / -1;
-        padding: 80px 20px;
+        padding: 72px 20px;
         text-align: center;
-        color: var(--text-dim);
-        font-family: var(--body);
-        font-size: 12px;
-        letter-spacing: 0.12em;
+        color: var(--ink-soft);
+        font-family: var(--cond);
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
       }
 
       /* ── DETAIL PANEL ── */
@@ -890,7 +1002,8 @@
 
       /* ── FOOTER ── */
       .footer {
-        border-top: 1px solid var(--border);
+        background: #0d5c3f;
+        border-top: 2px solid #121513;
         padding: 22px 48px;
       }
       .footer-inner {
@@ -904,17 +1017,16 @@
       }
       .footer-text {
         font-family: var(--body);
-        font-size: 11px;
-        letter-spacing: 0.05em;
-        color: var(--text-dim);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: #e7ecea;
       }
       .footer-link {
-        color: var(--text-dim);
-        text-decoration: none;
-        transition: color 0.15s;
+        color: #e7ecea;
+        text-underline-offset: 3px;
       }
       .footer-link:hover {
-        color: var(--text);
+        background: rgba(231, 236, 234, 0.16);
       }
 
       /* ── RESPONSIVE ── */
@@ -922,24 +1034,27 @@
         .hero {
           padding: 44px 20px 36px;
         }
-        .hero::after {
+        .filters {
+          position: static;
+          padding: 12px 16px 20px;
+        }
+        .mat {
+          padding: 20px 10px 40px;
+        }
+        .sheet {
+          padding: 24px 14px 32px;
+        }
+        .crop {
           display: none;
         }
-        .filters {
-          padding: 11px 20px;
+        .band-grid {
+          grid-template-columns: repeat(auto-fill, minmax(calc(var(--icon) + 28px), 1fr));
         }
-        .grid-wrap {
-          padding: 20px 16px 48px;
-        }
-        .ops-grid {
-          grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
-          gap: 8px;
+        .cell {
+          padding: 18px 2px 12px;
         }
         .footer {
           padding: 20px;
-        }
-        .hero-stats {
-          gap: 24px;
         }
         .result-count {
           display: none;
@@ -958,7 +1073,6 @@
     <!-- ── HERO ── -->
     <header class="hero">
       <div class="hero-inner">
-        <p class="hero-eyebrow">// operator intelligence database</p>
         <h1 class="hero-title">
           <span class="title-r6">R6</span><span class="title-ops">OPERATORS</span>
         </h1>
@@ -1025,36 +1139,20 @@
             npm
           </a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="stat-value" id="op-count">—</span>
-            <span class="stat-label">Operators</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-value">SVG</span>
-            <span class="stat-label">Format</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-value">MIT</span>
-            <span class="stat-label">License</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-value">TS</span>
-            <span class="stat-label">Typed</span>
-          </div>
-        </div>
+        <p class="hero-spec">
+          <span id="op-count">—</span> operators / SVG / MIT license / TypeScript types
+        </p>
       </div>
     </header>
 
-    <!-- ── FILTERS ── -->
+    <!-- ── RULER TOOLBAR ── -->
     <div class="filters" role="search">
       <div class="filters-inner">
-        <div class="filter-pills" role="group" aria-label="Filter by role">
+        <div class="ctl-group" role="group" aria-label="Filter by role">
           <button class="pill active" data-role="" onclick="setRole('')">All</button>
           <button class="pill" data-role="Attacker" onclick="setRole('Attacker')">ATK</button>
           <button class="pill" data-role="Defender" onclick="setRole('Defender')">DEF</button>
         </div>
-        <div class="filter-sep" aria-hidden="true"></div>
         <select
           class="filter-select"
           id="org-filter"
@@ -1083,19 +1181,70 @@
             type="search"
             class="search-input"
             id="search-input"
-            placeholder="Search operator…"
+            placeholder="Search operator"
             aria-label="Search operators"
             oninput="applyFilters()"
           />
         </div>
-        <span class="result-count" id="result-count" aria-live="polite"></span>
+        <div class="ctl-group" role="group" aria-label="Icon size in pixels">
+          <span class="ctl-label" aria-hidden="true">Size px</span>
+          <button class="ctl" data-size="32" aria-pressed="false" onclick="setSize(32)">32</button>
+          <button class="ctl" data-size="48" aria-pressed="false" onclick="setSize(48)">48</button>
+          <button class="ctl" data-size="64" aria-pressed="true" onclick="setSize(64)">64</button>
+          <button class="ctl" data-size="96" aria-pressed="false" onclick="setSize(96)">96</button>
+          <button class="ctl" data-size="128" aria-pressed="false" onclick="setSize(128)">
+            128
+          </button>
+        </div>
+        <div class="ctl-group" role="group" aria-label="What clicking an icon does">
+          <span class="ctl-label" aria-hidden="true">On click</span>
+          <button class="ctl" data-mode="dossier" aria-pressed="true" onclick="setMode('dossier')">
+            <span class="led" aria-hidden="true"></span>Dossier
+          </button>
+          <button class="ctl" data-mode="svg" aria-pressed="false" onclick="setMode('svg')">
+            <span class="led" aria-hidden="true"></span>Copy SVG
+          </button>
+          <button class="ctl" data-mode="import" aria-pressed="false" onclick="setMode('import')">
+            <span class="led" aria-hidden="true"></span>Copy import
+          </button>
+        </div>
+        <span class="readout" id="readout" aria-live="polite">Click: dossier</span>
+        <span class="result-count" id="result-count"></span>
       </div>
     </div>
 
-    <!-- ── OPERATOR GRID ── -->
-    <main>
-      <div class="grid-wrap">
-        <div class="ops-grid" id="ops-grid" role="list"></div>
+    <!-- ── ICON SPECIMEN SHEET ── -->
+    <main class="mat">
+      <div class="sheet" id="sheet">
+        <span class="crop tl" aria-hidden="true"></span>
+        <span class="crop tr" aria-hidden="true"></span>
+        <span class="crop bl" aria-hidden="true"></span>
+        <span class="crop br" aria-hidden="true"></span>
+        <header class="sheet-head">
+          <div>
+            <h2 class="sheet-title">Operator icon sheet</h2>
+            <p class="sheet-spec">
+              <span id="sheet-count">84</span> symbols / 350 &times; 350 viewBox / SVG
+            </p>
+          </div>
+          <p class="sheet-note">
+            Every symbol on this sheet ships in the package. Click one to open its dossier, or set
+            the click action in the ruler above to copy its SVG or import line. Sheet R6-ICON. Rub
+            down with a blunt point.
+          </p>
+          <svg
+            class="reg-target"
+            viewBox="0 0 26 26"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            aria-hidden="true"
+          >
+            <circle cx="13" cy="13" r="7" />
+            <path d="M13 0v26M0 13h26" />
+          </svg>
+        </header>
+        <div id="ops-grid"></div>
       </div>
     </main>
 
@@ -1141,7 +1290,7 @@
       function init() {
         if (typeof r6operators === "undefined") {
           document.getElementById("ops-grid").innerHTML =
-            '<div class="empty-state">BUNDLE FAILED TO LOAD // CHECK NETWORK</div>'
+            '<div class="empty-state">The icon bundle did not load. Check your network and reload.</div>'
           return
         }
 
@@ -1157,6 +1306,17 @@
 
         document.getElementById("op-count").textContent = allOperators.length
 
+        const seen = {}
+        allOperators.forEach(({ key, op }) => {
+          const role = op.role || "Other"
+          seen[role] = (seen[role] || 0) + 1
+          codes[key] = role[0] + "-" + String(seen[role]).padStart(2, "0")
+        })
+        document.getElementById("ops-grid").addEventListener("click", (e) => {
+          const cell = e.target.closest(".cell")
+          if (cell) activate(cell.dataset.key, cell)
+        })
+
         // Populate org dropdown (sorted, unique)
         const orgs = [...new Set(allOperators.map(({ op }) => op.org).filter(Boolean))].sort()
         const sel = document.getElementById("org-filter")
@@ -1171,55 +1331,92 @@
       }
 
       // ── RENDER ────────────────────────────────────────────────────────────
+      const ROLE_ORDER = ["Attacker", "Defender", "Recruit"]
+      const ROLE_LABEL = { Attacker: "Attackers", Defender: "Defenders", Recruit: "Recruits" }
+      const codes = {}
+      let clickMode = "dossier"
+
       function renderGrid(items) {
         const grid = document.getElementById("ops-grid")
-        grid.innerHTML = ""
+        const n = items.length
+        document.getElementById("result-count").textContent = `${n} operator${n !== 1 ? "s" : ""}`
+        document.getElementById("sheet-count").textContent = n
 
-        if (items.length === 0) {
-          grid.innerHTML = '<div class="empty-state">NO OPERATORS FOUND // ADJUST FILTERS</div>'
-          document.getElementById("result-count").textContent = "0 operators"
+        if (n === 0) {
+          grid.innerHTML =
+            '<div class="empty-state">No symbols match. Clear the search or set the role to All.</div>'
           return
         }
 
-        const frag = document.createDocumentFragment()
+        const roles = [...new Set(items.map(({ op }) => op.role || "Other"))].sort(
+          (a, b) => (ROLE_ORDER.indexOf(a) + 1 || 99) - (ROLE_ORDER.indexOf(b) + 1 || 99),
+        )
 
-        items.forEach(({ key, op }) => {
-          const card = document.createElement("div")
-          card.className = "op-card"
-          card.setAttribute("role", "listitem")
-          card.setAttribute("tabindex", "0")
-          card.dataset.role = op.role || ""
-          card.dataset.key = key
-          if (key === activeKey) card.classList.add("active")
-
-          const isRecruit = key.startsWith("recruit_")
-          const displayName = isRecruit ? "Recruit" : op.name || key
-          const season = op.meta?.season || ""
-          const roleClass = op.role === "Attacker" ? "badge-atk" : "badge-def"
-
-          card.innerHTML = `
-            <div class="op-icon" aria-hidden="true">${op.toSVG({ width: "64", height: "64" })}</div>
-            <div class="op-name">${esc(displayName)}</div>
-            <div class="op-role-badge ${roleClass}">${esc(op.role || "?")}</div>
-            <div class="op-meta-row">
-              ${op.org ? `<span class="op-org">${esc(op.org)}</span>` : ""}
-              ${season ? `<span class="op-season">${esc(season)}</span>` : ""}
-            </div>
-          `
-
-          card.addEventListener("click", () => openPanel(key))
-          card.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault()
-              openPanel(key)
-            }
+        grid.innerHTML = roles
+          .map((role) => {
+            const group = items.filter(({ op }) => (op.role || "Other") === role)
+            const cells = group
+              .map(({ key, op }) => {
+                const season = op.meta?.season || ""
+                return `<li><button class="cell${key === activeKey ? " active" : ""}" data-key="${esc(key)}" data-role="${esc(role)}" aria-label="${esc(op.name || key)}, ${esc(role)}">
+                  <span class="cell-icon" aria-hidden="true">${op.toSVG({ width: "64", height: "64" })}</span>
+                  <span class="cell-name">${esc(op.name || key)}</span>
+                  <span class="cell-code">${codes[key]}${season ? " " + esc(season) : ""}</span>
+                </button></li>`
+              })
+              .join("")
+            return `<section class="band" data-role="${esc(role)}">
+              <h3 class="band-head"><span class="band-name">${esc(ROLE_LABEL[role] || role)}</span><span class="band-n">${group.length}</span><span class="band-rule"></span></h3>
+              <ul class="band-grid">${cells}</ul>
+            </section>`
           })
-          frag.appendChild(card)
-        })
+          .join("")
+      }
 
-        grid.appendChild(frag)
-        document.getElementById("result-count").textContent =
-          `${items.length} operator${items.length !== 1 ? "s" : ""}`
+      // ── SHEET CONTROLS ────────────────────────────────────────────────────
+      const MODE_LABEL = { dossier: "dossier", svg: "copy SVG", import: "copy import" }
+
+      function setReadout(msg) {
+        document.getElementById("readout").textContent = msg
+      }
+
+      function setSize(px) {
+        document.getElementById("sheet").style.setProperty("--icon", px + "px")
+        document
+          .querySelectorAll("[data-size]")
+          .forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.size === String(px))))
+      }
+
+      function setMode(mode) {
+        clickMode = mode
+        document
+          .querySelectorAll("[data-mode]")
+          .forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)))
+        setReadout("Click: " + MODE_LABEL[mode])
+      }
+
+      function copyText(text) {
+        if (!navigator.clipboard) return Promise.resolve(false)
+        return navigator.clipboard.writeText(text).then(
+          () => true,
+          () => false,
+        )
+      }
+
+      function activate(key, cell) {
+        if (clickMode === "dossier") return openPanel(key)
+        const found = allOperators.find((x) => x.key === key)
+        if (!found) return
+        const isSvg = clickMode === "svg"
+        const text = isSvg ? found.op.toSVG() : `import { ${key} } from "@zerobertoo/r6operators"`
+        copyText(text).then((ok) => {
+          if (!ok) return setReadout("Copy blocked by the browser")
+          setReadout(isSvg ? `Copied ${key}.toSVG()` : `Copied import for ${key}`)
+          cell.classList.remove("rub")
+          void cell.offsetWidth
+          cell.classList.add("rub", "copied")
+          setTimeout(() => cell.classList.remove("copied"), 1800)
+        })
       }
 
       // ── FILTERS ───────────────────────────────────────────────────────────
@@ -1253,7 +1450,7 @@
         activeKey = key
 
         document
-          .querySelectorAll(".op-card")
+          .querySelectorAll(".cell")
           .forEach((c) => c.classList.toggle("active", c.dataset.key === key))
 
         const { op } = found
@@ -1395,7 +1592,7 @@ document.body.innerHTML = svg;`
 
       function closePanel() {
         activeKey = null
-        document.querySelectorAll(".op-card").forEach((c) => c.classList.remove("active"))
+        document.querySelectorAll(".cell").forEach((c) => c.classList.remove("active"))
         document.getElementById("detail-panel").classList.remove("open")
         document.getElementById("backdrop").classList.remove("open")
       }
