@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: r6operators",
+  "extensions": {
+    "colorMeta": {
+      "mat-green": {
+        "role": "primary",
+        "displayName": "Cutting-Mat Green",
+        "canonical": "#0d5c3f",
+        "tonalRamp": [
+          "#03150e",
+          "#062a1d",
+          "#0a3f2c",
+          "#0d5c3f",
+          "#2a7a5c",
+          "#5a9b82",
+          "#9cc3b2",
+          "#d3e6dd"
+        ]
+      },
+      "print-black": {
+        "role": "primary",
+        "displayName": "Print Black",
+        "canonical": "#121513",
+        "tonalRamp": [
+          "#050605",
+          "#121513",
+          "#2a2f2c",
+          "#3d4742",
+          "#5f6b65",
+          "#8a948f",
+          "#b9c0bc",
+          "#e7ecea"
+        ]
+      },
+      "attacker-red-orange": {
+        "role": "secondary",
+        "displayName": "Attacker Red-Orange",
+        "canonical": "#b92a06",
+        "tonalRamp": [
+          "#2c0a02",
+          "#521304",
+          "#7a1c04",
+          "#b92a06",
+          "#d9552f",
+          "#e88a6c",
+          "#f3bca9",
+          "#fae3da"
+        ]
+      },
+      "defender-cobalt": {
+        "role": "secondary",
+        "displayName": "Defender Cobalt",
+        "canonical": "#1849c9",
+        "tonalRamp": [
+          "#071234",
+          "#0c2160",
+          "#123596",
+          "#1849c9",
+          "#4a73db",
+          "#7f9ee8",
+          "#b4c6f2",
+          "#e0e8fa"
+        ]
+      },
+      "led-orange": {
+        "role": "tertiary",
+        "displayName": "LED Orange",
+        "canonical": "#ff5a2a",
+        "tonalRamp": [
+          "#4a1403",
+          "#7d2407",
+          "#b53a12",
+          "#ff5a2a",
+          "#ff7d55",
+          "#ffa17f",
+          "#ffc6b0",
+          "#ffe6dc"
+        ]
+      },
+      "acetate-grey": {
+        "role": "neutral",
+        "displayName": "Acetate Grey",
+        "canonical": "#e7ecea",
+        "tonalRamp": [
+          "#2b302e",
+          "#4c5552",
+          "#6f7a76",
+          "#939e9a",
+          "#b3bcb9",
+          "#ccd4d1",
+          "#e7ecea",
+          "#f4f7f5"
+        ]
+      },
+      "chrome-bg": {
+        "role": "neutral",
+        "displayName": "Chrome Night",
+        "canonical": "#070809",
+        "tonalRamp": [
+          "#070809",
+          "#0c0f12",
+          "#111519",
+          "#1a2030",
+          "#253040",
+          "#7a90a8",
+          "#b8c8d8",
+          "#e3ebf3"
+        ]
+      },
+      "chrome-attacker-amber": {
+        "role": "secondary",
+        "displayName": "Chrome Amber",
+        "canonical": "#f59e0b",
+        "tonalRamp": [
+          "#3d2803",
+          "#6b4506",
+          "#9a6408",
+          "#f59e0b",
+          "#f8b43d",
+          "#fac86f",
+          "#fcdd9f",
+          "#fef0d0"
+        ]
+      },
+      "chrome-defender-sky": {
+        "role": "secondary",
+        "displayName": "Chrome Sky",
+        "canonical": "#38bdf8",
+        "tonalRamp": [
+          "#0a2a3a",
+          "#10465f",
+          "#176487",
+          "#38bdf8",
+          "#62cdfa",
+          "#8cdafb",
+          "#b6e8fd",
+          "#dff4fe"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "sheet-title": {
+        "displayName": "Sheet Title",
+        "purpose": "Printed header of the specimen sheet."
+      },
+      "band-name": { "displayName": "Band Name", "purpose": "Role band headings in role ink." },
+      "cell-name": { "displayName": "Cell Name", "purpose": "Operator name under each icon." },
+      "control": { "displayName": "Control", "purpose": "Toolbar pills, selects, labels." },
+      "code": { "displayName": "Code", "purpose": "Catalogue codes, counts, readouts." },
+      "chrome-display": {
+        "displayName": "Chrome Display",
+        "purpose": "Dark hero title (Rajdhani)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "carrier-lift",
+        "value": "0 18px 40px -12px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.35)",
+        "purpose": "The only shadow on the sheet: acetate lifting off the mat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "burnish",
+        "value": "0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "purpose": "Hatch sweep on icon click; off under prefers-reduced-motion."
+      },
+      {
+        "name": "icon-resize",
+        "value": "0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Icon size ladder change."
+      },
+      {
+        "name": "state-fade",
+        "value": "0.15s",
+        "purpose": "Control and cell background/color changes."
+      },
+      {
+        "name": "panel-slide",
+        "value": "0.32s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Detail panel drawer."
+      }
+    ],
+    "breakpoints": [{ "name": "mobile", "value": "768px" }]
+  },
+  "components": [
+    {
+      "name": "Toolbar Pill",
+      "kind": "button",
+      "refersTo": "control",
+      "description": "Square black-outlined condensed-caps control; inverts to ink when active.",
+      "html": "<button class=\"ds-pill\">Attackers</button> <button class=\"ds-pill ds-on\">Defenders</button>",
+      "css": ".ds-pill{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border:1px solid #121513;border-radius:0;background:transparent;color:#121513;cursor:pointer;transition:background-color .15s,color .15s}.ds-pill:hover{background:rgba(18,21,19,.1)}.ds-pill:focus-visible{outline:2px solid #121513;outline-offset:2px}.ds-on{background:#1849c9;border-color:#1849c9;color:#e7ecea}"
+    },
+    {
+      "name": "Click-Action Control with LED",
+      "kind": "button",
+      "refersTo": "control-active",
+      "description": "Action selector; the active one lights an orange LED.",
+      "html": "<button class=\"ds-act\" aria-pressed=\"true\"><span class=\"ds-led\"></span>Copy SVG</button>",
+      "css": ".ds-act{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border:1px solid #121513;border-radius:0;background:transparent;color:#121513;display:inline-flex;align-items:center;gap:7px;cursor:pointer}.ds-act[aria-pressed=true]{background:#121513;color:#e7ecea}.ds-led{width:8px;height:8px;border-radius:50%;border:1px solid currentColor}.ds-act[aria-pressed=true] .ds-led{background:#ff5a2a;border-color:#ff5a2a}.ds-act:focus-visible{outline:2px solid #121513;outline-offset:2px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Square acetate-field input with black border.",
+      "html": "<input class=\"ds-input\" placeholder=\"Search operators\" />",
+      "css": ".ds-input{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:500;letter-spacing:.06em;background:#f4f7f5;border:1px solid #121513;border-radius:0;padding:5px 10px;color:#121513}.ds-input::placeholder{color:#3d4742}.ds-input:focus-visible{outline:2px solid #121513;outline-offset:2px}"
+    },
+    {
+      "name": "Band Header",
+      "kind": "custom",
+      "description": "Role band title, count and 3px rule in role ink.",
+      "html": "<div class=\"ds-band\"><span class=\"ds-band-name\">Attackers</span><span class=\"ds-band-n\">46</span><span class=\"ds-band-rule\"></span></div>",
+      "css": ".ds-band{display:flex;align-items:center;gap:14px;color:#b92a06}.ds-band-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase;line-height:1}.ds-band-n{font-family:'JetBrains Mono',monospace;font-size:12px}.ds-band-rule{flex:1;height:3px;background:currentColor}"
+    },
+    {
+      "name": "Icon Cell",
+      "kind": "card",
+      "refersTo": "cell",
+      "description": "Icon in dashed registration outline with name and mono code; role-ink tint on hover.",
+      "html": "<button class=\"ds-cell\"><span class=\"ds-icon\"></span><span class=\"ds-name\">Ash</span><span class=\"ds-code\">R6-001</span></button>",
+      "css": ".ds-cell{display:flex;flex-direction:column;align-items:center;gap:9px;padding:26px 6px 18px;background:transparent;border:0;border-radius:0;color:#121513;cursor:pointer;width:120px;transition:background-color .15s}.ds-cell:hover{background:color-mix(in srgb,#b92a06 9%,transparent)}.ds-cell:hover .ds-name{color:#b92a06}.ds-cell:focus-visible{outline:2px solid #121513;outline-offset:2px}.ds-icon{width:64px;height:64px;background:#9cc3b2;outline:1px dashed rgba(18,21,19,.55);outline-offset:6px}.ds-name{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;line-height:1.05}.ds-code{font-family:'JetBrains Mono',monospace;font-size:12px;color:#3d4742}"
+    },
+    {
+      "name": "Chrome Install Command",
+      "kind": "custom",
+      "refersTo": "install-cmd",
+      "description": "Dark-register mono command chip from the hero.",
+      "html": "<div class=\"ds-install\"><span>$</span> npm i @zerobertoo/r6operators</div>",
+      "css": ".ds-install{display:inline-flex;gap:10px;background:#111519;border:1px solid #253040;border-radius:3px;padding:10px 16px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#f59e0b}.ds-install span{color:#7a90a8}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Rub-Down Sheet",
+    "overview": "The site runs two registers. The primary, new world is the specimen sheet: a cool grey acetate carrier printed in black, with crop marks and registration crosses, lying on a saturated green self-healing cutting mat with faint grid lines. The catalogue reads as one printed object, never a card grid. Type is Barlow Condensed caps for names and headers and JetBrains Mono for codes and measures. Spot inks carry the operator roles: red-orange for Attackers, cobalt for Defenders, black for Recruits.\n\nThe incumbent register, the hero, detail panel and footer, is dark chrome: near-black surfaces, cool blue-grey text, amber and sky accents, Rajdhani display and Inter body, hairline borders and tiny radii. It stays as built.\n\nThe build treats print as flat: one ink per label, square corners, no gradients on the sheet. The icons keep their own multi-tone tiles; ink colors apply to print around them.",
+    "keyCharacteristics": [
+      "Sheet register: green mat, grey acetate, black print, hard-edged controls.",
+      "Role is always carried by ink: red-orange, cobalt, black.",
+      "Mono for every code, count and measure; condensed caps for every name.",
+      "Chrome register: dark, hairline-bordered, amber and sky accents."
+    ],
+    "rules": [
+      {
+        "name": "The Ink-Per-Role Rule",
+        "body": "Inside the sheet, role is expressed only through the three spot inks; the dark-chrome amber and sky never appear on the sheet, and sheet inks never appear on the chrome.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lit-State Rule",
+        "body": "The only color-lit state on the sheet is the orange LED on the active click action; other active states invert to ink fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Names-Caps Rule",
+        "body": "Names and headers are condensed caps; codes and numbers are mono. Do not swap them.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Lift Rule",
+        "body": "Only the carrier sheet casts a shadow. Cells, controls and bands are flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep sheet corners square and sheet strokes 1px black (2px to 3px for structural rules).",
+      "Do color by role using only the three spot inks on the sheet.",
+      "Do set codes, counts and measures in JetBrains Mono.",
+      "Do drive icon size from the single `--icon` property.",
+      "Do keep the orange LED for the active click action only.",
+      "Do keep hero, panel and footer in the dark chrome tokens."
+    ],
+    "donts": [
+      "Don't add gradients, glow or glass to the sheet; its only shadow is the carrier lift.",
+      "Don't render operators as individual bordered cards; the catalogue stays one printed sheet.",
+      "Don't use chrome amber or sky inside the sheet, or sheet inks inside the chrome."
+    ]
+  }
+}
