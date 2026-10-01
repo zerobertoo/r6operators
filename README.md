@@ -114,6 +114,30 @@ https://cdn.jsdelivr.net/npm/@zerobertoo/r6operators/dist/icons/alibi.svg
 https://unpkg.com/@zerobertoo/r6operators/dist/icons/alibi.svg
 ```
 
+## Migrating to 2.0
+
+2.0 has four breaking changes. Each one has a one-line fix.
+
+| Before (1.x)                                       | After (2.0)                                                                      |
+| -------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `getSVGIcon` and `toSVG` returned a `TypeError`    | They throw it. Wrap calls in `try/catch`; the return type is just `string`.      |
+| `op.org`                                           | Removed, the game no longer has organizations. Use `op.squad`.                   |
+| `import r6 from "..."; r6.getSVGIcon(op)`          | The default export holds only operators. Use `import { getSVGIcon } from "..."`. |
+| `@zerobertoo/r6operators-react` with core `^1.1.0` | Upgrade `@zerobertoo/r6operators` to `^2.0.0`; the React package requires it.    |
+
+```js
+// 1.x
+const svg = getSVGIcon(op)
+if (svg instanceof Error) handle(svg)
+
+// 2.0
+try {
+  const svg = getSVGIcon(op)
+} catch (error) {
+  handle(error)
+}
+```
+
 ## React Component
 
 For React applications, use the dedicated `@zerobertoo/r6operators-react` package:
