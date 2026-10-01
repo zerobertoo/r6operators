@@ -150,6 +150,15 @@ The component accepts the following props:
 - `className`: Additional CSS class
 - All other SVG props are passed through
 
+`R6Operator` looks the operator up by name, so it bundles every operator (about 450 KB). To bundle only the operators you use, pass the operator object to `R6Icon` instead:
+
+```jsx
+import { R6Icon } from "@zerobertoo/r6operators-react"
+import { ace } from "@zerobertoo/r6operators"
+
+;<R6Icon op={ace} size={48} />
+```
+
 ## Reference
 
 ### `r6operators.[name]`

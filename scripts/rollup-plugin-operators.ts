@@ -5,6 +5,7 @@ import { promises as fs } from "fs"
 import type { Plugin } from "rollup"
 
 import type { IOperator } from "~/types/operator"
+import { buildAllModule } from "./build-icon-modules"
 import { CURRENT_SEASON, OPS_DIR, TEMP_DIR } from "./config"
 
 const VIRTUAL_PREFIX = "\0r6op:"
@@ -115,6 +116,8 @@ export function r6operatorsPlugin(): Plugin {
     load(id) {
       if (!id.startsWith(VIRTUAL_PREFIX)) return
       const name = id.slice(VIRTUAL_PREFIX.length)
+      if (name === "all")
+        return buildAllModule(operatorNames).replace("./index", "@operators/index")
       if (name === "index") {
         return operatorNames.map((n) => `export { ${n} } from "@operators/${n}"`).join("\n") + "\n"
       }

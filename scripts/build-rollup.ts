@@ -3,7 +3,6 @@ import { rollup } from "rollup"
 
 import typescript from "@rollup/plugin-typescript"
 import terser from "@rollup/plugin-terser"
-import analyze from "rollup-plugin-analyzer"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import { generateDtsBundle } from "dts-bundle-generator"
 
@@ -13,24 +12,12 @@ import { r6operatorsPlugin } from "./rollup-plugin-operators"
 
 // build ts
 export async function buildBundle(): Promise<void> {
-  // Track iterations over output files
-  let analyzePluginIterations = 0
-
   const bundle = await rollup({
     input: ENTRY_FILE,
     plugins: [
       r6operatorsPlugin(),
       nodeResolve(),
       typescript({ declaration: false, tsconfig: "./tsconfig.rollup.json" }),
-      analyze({
-        summaryOnly: true,
-        onAnalysis: () => {
-          if (analyzePluginIterations > 0) {
-            return // We only want reports on the first output
-          }
-          analyzePluginIterations++
-        },
-      }),
     ],
   })
 
@@ -59,7 +46,9 @@ export async function buildBundle(): Promise<void> {
 
 // build type declarations
 export async function buildDts(): Promise<void> {
-  const bundle = generateDtsBundle([{ filePath: ENTRY_FILE, output: { umdModuleName: pkg.name } }])
+  const bundle = generateDtsBundle([
+    { filePath: ENTRY_FILE, output: { umdModuleName: "r6operators" } },
+  ])
 
   // check if folder exists and create if not
   await fs.stat(`${DIST_DIR}`).catch(async () => {
@@ -67,7 +56,11 @@ export async function buildDts(): Promise<void> {
   })
 
   // write bundle to file
-  await fs.writeFile(`${DIST_DIR}/index.d.ts`, bundle.toString())
+  // operators are objects with `id`, `svg` and `toSVG` at runtime, so type them as `Operator`
+  const dts = bundle
+    .toString()
+    .replaceAll(/^((?:export declare const )?\t?\w+: )IOperator;$/gm, "$1Operator;")
+  await fs.writeFile(`${DIST_DIR}/index.d.ts`, dts)
 
   console.log(`Successfully created type declarations!\n`)
 }
