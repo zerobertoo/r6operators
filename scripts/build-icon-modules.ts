@@ -7,9 +7,7 @@ import { OPS_DIR } from "./config"
 // can drop it when only named exports are used.
 export function buildAllModule(names: string[]): string {
   return (
-    `import { ${names.join(", ")} } from "./index"\n` +
-    `import { getSVGIcon } from "~/functions"\n` +
-    `export default { ${names.join(", ")}, getSVGIcon }\n`
+    `import { ${names.join(", ")} } from "./index"\nexport default { ${names.join(", ")} }\n`
   )
 }
 

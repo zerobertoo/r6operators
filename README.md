@@ -40,7 +40,7 @@ npm install @zerobertoo/r6operators
 // named imports
 import { ace, alibi, getSVGIcon } from "@zerobertoo/r6operators"
 
-// default import (all operators + getSVGIcon as one object)
+// default import (all operators as one object)
 import r6operators from "@zerobertoo/r6operators"
 
 alibi
