@@ -215,7 +215,7 @@ Sheet world: square corners everywhere (0 radius), 1px black borders on controls
 
 ### Navigation (ruler toolbar)
 
-Sticky acetate bar with 2px black bottom border and a tick ruler (1px ticks every 8px, taller every 40px) along the bottom. Holds role pills, org select, search, size ladder, click-action row, a mono readout and result count.
+Sticky acetate bar with 2px black bottom border and a tick ruler (1px ticks every 8px, taller every 40px) along the bottom. Holds role pills, squad select, search, size ladder, click-action row, a mono readout and result count.
 
 ### Icon Cell (signature)
 
