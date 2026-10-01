@@ -57,7 +57,7 @@
     "pretest": "[ -d dist ] || npm run build",
     "test": "jest",
     "lint": "eslint '**/*.{js,ts}'",
-    "format": "prettier **/* --ignore-path .gitignore --check --write",
+    "format": "prettier **/* --ignore-path .gitignore --ignore-path .prettierignore --check --write",
     "prepare": "husky",
     "prepublishOnly": "npm run build"
   },

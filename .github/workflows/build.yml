@@ -53,7 +53,7 @@ jobs:
         run: npm run lint
 
       - name: Check formatting
-        run: npx prettier --check . --ignore-path .gitignore
+        run: npx prettier --check . --ignore-path .gitignore --ignore-path .prettierignore
 
   build:
     name: Build & Test
