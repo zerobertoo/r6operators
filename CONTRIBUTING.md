@@ -23,6 +23,8 @@ Found a wrong height, weight, country, or rating? Use the [Data Correction issue
 
 ### Adding a new operator
 
+> Running the project locally? `npm run new-operator -- <name> <Attacker|Defender> [season]` creates the folder and a pre-filled `index.ts` for you.
+
 Here is a complete walkthrough using **Alibi** (Y3S2) as the example.
 
 **1. Create the operator directory**
