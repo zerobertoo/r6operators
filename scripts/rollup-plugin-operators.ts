@@ -85,7 +85,8 @@ export function r6operatorsPlugin(): Plugin {
 
           const stringified = stringifyObject(merged, {
             transform: (obj, property, original) => {
-              if (property === "toSVG") return "function(userAttr){return getSVGIcon(this, userAttr)}"
+              if (property === "toSVG")
+                return "function(userAttr){return getSVGIcon(this, userAttr)}"
               return original
             },
           })
