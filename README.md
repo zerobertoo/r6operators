@@ -18,7 +18,7 @@
 
 **[Live demo →](https://zerobertoo.github.io/r6operators)**
 
-r6operators is a collection of high-quality vectorized Rainbow Six: Siege Operator icons & metadata for Node.js.
+r6operators is a collection of high-quality vectorized Rainbow Six: Siege Operator icons & metadata for Node.js and the browser.
 
 This project started as way for people to get high-resolution operator icons for Rainbow Six: Siege operators, especially as vector graphics gained popularity in web development in the recent years. All icons have been remade by hand and they got the same aspect ratio & alignment for more consistent usage.
 
@@ -48,7 +48,7 @@ alibi
 // 	  id: 'alibi',
 // 	  name: 'Alibi',
 // 	  role: 'Defender',
-// 	  org: 'GIS',
+// 	  org: 'GIS', // deprecated, removed in 2.0
 //    squad: 'VIPERSTRIKE',
 // 	  ratings: {
 // 		  health: 1,
@@ -61,19 +61,17 @@ alibi
 // 		  season: 'Y3S2',
 // 		  height: 171,
 // 		  weight: 63,
-//      price: 10000
+//      price: { renown: 10000, r6credits: 240 }
 // 	  },
 // 	  bio: {
-// 		  real_name: 'Aria de Luca',
-// 		  birthplace: 'Tripoli, Lybia'
+// 		  realName: 'Aria de Luca',
+// 		  birthplace: 'Tripoli, Libya'
 // 	  },
 // 	  svg: {
 // 		  contents: [SVG Contents],
 // 		  attributes: {
 // 			  xmlns: 'http://www.w3.org/2000/svg',
 // 			  viewBox: '0 0 350 350',
-// 			  style: 'enable-background:new 0 0 350 350',
-// 			  space: 'preserve',
 // 			  class: 'r6operators r6operators-alibi'
 // 		  }
 // 	  },
@@ -91,7 +89,7 @@ You can also access the optimized SVG icons directly from `node_modules/@zerober
 
 #### Using via CDN (browser)
 
-Load the minified UMD bundle from [jsDelivr](https://www.jsdelivr.com/) or [unpkg](https://unpkg.com/) — no bundler required:
+Load the minified UMD bundle from [jsDelivr](https://www.jsdelivr.com/) or [unpkg](https://unpkg.com/), no bundler required:
 
 ```html
 <!-- jsDelivr -->
@@ -223,7 +221,7 @@ getSVGIcon(alibi, { class: "large" })
 
 ## Roadmap
 
-Curious about what's coming next? Check out the [Roadmap](./ROADMAP.md) to see planned features — weapons data, maps data, React wrappers, and more.
+Curious about what's coming next? Check out the [Roadmap](./ROADMAP.md) to see planned features: weapons data, maps data, React wrappers for them, and more.
 
 ## Contributing
 

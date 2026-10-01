@@ -22,14 +22,6 @@ body:
     validations:
       required: true
   - type: input
-    id: org
-    attributes:
-      label: Organization
-      description: "Operator organization name."
-      placeholder: "ex: FBI, SWAT"
-    validations:
-      required: true
-  - type: input
     id: squad
     attributes:
       label: Squad

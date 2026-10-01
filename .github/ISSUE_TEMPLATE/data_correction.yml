@@ -1,12 +1,12 @@
 name: Data Correction
 description: Report incorrect data for an existing operator
-title: "[Data] Fix <operator> — <field>"
+title: "[Data] Fix <operator>: <field>"
 labels: ["data-correction", "bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form to report a data error in an existing operator — wrong stat, wrong name, wrong country, etc.
+        Use this form to report a data error in an existing operator: wrong stat, wrong name, wrong country, etc.
         Please include a source so we can verify the correction.
 
   - type: input
@@ -26,7 +26,6 @@ body:
       options:
         - name
         - role
-        - org
         - squad
         - ratings.health
         - ratings.speed

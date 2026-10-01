@@ -34,7 +34,7 @@ body:
       options:
         - Node.js (CommonJS)
         - Node.js (ESM)
-        - Browser (bundler — Vite, Webpack, esbuild…)
+        - Browser (bundler: Vite, Webpack, esbuild…)
         - Browser (CDN / UMD script tag)
         - Other
     validations:
