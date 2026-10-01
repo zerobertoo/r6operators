@@ -56,7 +56,12 @@ describe("optimized svg icons", () => {
   })
 
   it("has no duplicated ids across icons", () => {
-    const ids = files.flatMap(([, svg]) => [...svg.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]))
+    const ids = files.flatMap(([, svg]) =>
+      svg
+        .matchAll(/\bid="([^"]+)"/g)
+        .map((m) => m[1])
+        .toArray(),
+    )
     expect(new Set(ids).size).toBe(ids.length)
   })
 })

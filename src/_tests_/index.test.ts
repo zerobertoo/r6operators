@@ -2,9 +2,9 @@ import * as r6operators from "../../dist"
 import * as ops from "@operators/index"
 
 test("exports all operators as named exports", () => {
-  Object.keys(ops).map((op) => {
+  for (const op of Object.keys(ops)) {
     expect(r6operators).toHaveProperty(op)
-  })
+  }
 })
 
 test("exports extended object", () => {
