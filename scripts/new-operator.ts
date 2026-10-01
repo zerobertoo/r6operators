@@ -22,7 +22,6 @@ async function main(): Promise<void> {
 export const ${name}: IOperator = {
   name: "${title}",
   role: "${role}",
-  org: "TODO",
   squad: "TODO",
   ratings: { health: 2, speed: 2, difficulty: 2 },
   meta: { gender: "u", country: "xx", season: "${season}", height: 0, weight: 0 },

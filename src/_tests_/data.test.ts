@@ -20,7 +20,6 @@ describe.each(entries)("operator %s", (_id, op) => {
   it("has the base fields", () => {
     expect(op.name).toBeTruthy()
     expect(["Attacker", "Defender", "Recruit"]).toContain(op.role)
-    expect(op.org).toBeTruthy()
     expect(op.squad).toBeTruthy()
   })
 
