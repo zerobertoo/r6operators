@@ -23,6 +23,7 @@ All new packages will live in this same monorepo, sharing tooling, CI/CD, and re
 Breaking changes are announced with a deprecation notice in a minor release first, and only removed in the next major. Candidates so far:
 
 - [ ] `getSVGIcon` and `toSVG` throw a `TypeError` for invalid input instead of returning it, and the return type becomes `string` (deprecation notice added in 1.4.0)
+- [ ] Remove `org` from `IOperator` and from the operator data (the game no longer has organizations; deprecated and optional since 1.4.0)
 
 ---
 
