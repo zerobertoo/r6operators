@@ -12,7 +12,7 @@ const config: Config.InitialOptions = {
       "@operators/*": ["./operators/*"],
       "@temp/*": ["./temp/*"],
     },
-    { prefix: "<rootDir>/" }
+    { prefix: "<rootDir>/" },
   ),
 }
 export default config
