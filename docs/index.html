@@ -1171,11 +1171,11 @@
         </div>
         <select
           class="filter-select"
-          id="org-filter"
-          aria-label="Filter by organisation"
+          id="squad-filter"
+          aria-label="Filter by squad"
           onchange="applyFilters()"
         >
-          <option value="">All Orgs</option>
+          <option value="">All Squads</option>
         </select>
         <div class="search-wrap">
           <svg
@@ -1333,13 +1333,15 @@
           if (cell) activate(cell.dataset.key, cell)
         })
 
-        // Populate org dropdown (sorted, unique)
-        const orgs = [...new Set(allOperators.map(({ op }) => op.org).filter(Boolean))].sort()
-        const sel = document.getElementById("org-filter")
-        orgs.forEach((org) => {
+        // Populate squad dropdown (sorted, unique)
+        const squads = [
+          ...new Set(allOperators.map(({ op }) => squadOf(op)).filter(Boolean)),
+        ].sort()
+        const sel = document.getElementById("squad-filter")
+        squads.forEach((squad) => {
           const o = document.createElement("option")
-          o.value = org
-          o.textContent = org
+          o.value = squad
+          o.textContent = squad
           sel.appendChild(o)
         })
 
@@ -1436,13 +1438,16 @@
       }
 
       // ── FILTERS ───────────────────────────────────────────────────────────
+      // "none" means the operator page shows no squad
+      const squadOf = (op) => (op.squad && op.squad !== "none" ? op.squad : "")
+
       function applyFilters() {
-        const org = document.getElementById("org-filter").value
+        const squad = document.getElementById("squad-filter").value
         const q = document.getElementById("search-input").value.toLowerCase().trim()
 
         const filtered = allOperators.filter(({ key, op }) => {
           if (activeRole && op.role !== activeRole) return false
-          if (org && op.org !== org) return false
+          if (squad && squadOf(op) !== squad) return false
           if (q && !op.name?.toLowerCase().includes(q) && !key.toLowerCase().includes(q))
             return false
           return true
@@ -1496,7 +1501,7 @@
 // Operator metadata
 console.log(${key}.name);   // "${op.name}"
 console.log(${key}.role);   // "${op.role}"
-console.log(${key}.org);    // "${op.org}"
+console.log(${key}.squad);  // "${op.squad}"
 
 // Render SVG
 const svg = ${key}.toSVG({ width: '64', height: '64' });
@@ -1518,7 +1523,6 @@ document.body.innerHTML = svg;`
           countryName ? ["Country", countryName] : null,
           op.meta?.height ? ["Height", op.meta.height + " cm"] : null,
           op.meta?.weight ? ["Weight", op.meta.weight + " kg"] : null,
-          op.squad ? ["Squad", op.squad] : null,
           op.meta?.gender
             ? [
                 "Gender",
@@ -1539,7 +1543,7 @@ document.body.innerHTML = svg;`
               ${op.bio?.realName ? `<div class="panel-realname">${esc(op.bio.realName)}</div>` : ""}
               <div class="panel-badges">
                 <span class="pbadge ${isAtk ? "pbadge-atk" : "pbadge-def"}">${esc(op.role || "?")}</span>
-                ${op.org ? `<span class="pbadge pbadge-neutral">${esc(op.org)}</span>` : ""}
+                ${squadOf(op) ? `<span class="pbadge pbadge-neutral">${esc(squadOf(op))}</span>` : ""}
                 ${op.meta?.season ? `<span class="pbadge pbadge-neutral">${esc(op.meta.season)}</span>` : ""}
               </div>
             </div>
