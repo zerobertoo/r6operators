@@ -10,7 +10,12 @@ export interface R6IconProps extends Omit<React.SVGProps<SVGSVGElement>, "name">
   color?: string
 }
 
-/** Tree-shakeable variant of `R6Operator`: only the operator you pass gets bundled. */
+/**
+ * Tree-shakeable variant of `R6Operator`: only the operator you pass gets bundled.
+ *
+ * Security: `op.svg.contents` is injected with `dangerouslySetInnerHTML`. Only pass
+ * operators exported by `@zerobertoo/r6operators`, never objects built from untrusted input.
+ */
 export function R6Icon({
   op,
   size = 24,

@@ -159,6 +159,8 @@ import { ace } from "@zerobertoo/r6operators"
 ;<R6Icon op={ace} size={48} />
 ```
 
+> **Security:** `R6Icon` injects `op.svg.contents` with `dangerouslySetInnerHTML`. Only pass operators exported by this package, never objects built from user input or other untrusted sources.
+
 ## Reference
 
 ### `r6operators.[name]`
