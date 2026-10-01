@@ -2,3 +2,4 @@
 operators/index.ts
 operators/all.ts
 CHANGELOG.md
+.release-please-manifest.json
