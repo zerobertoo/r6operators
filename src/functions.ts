@@ -14,6 +14,11 @@ function attributesToString(attributes: Record<string, unknown>): string {
  * @param op Object containing operator object.
  * @param userAttributes Object containing additional element attributes.
  * @returns String containing the SVG element.
+ *
+ * Deprecation notice: for an invalid `op` or `userAttributes` this function currently
+ * *returns* a `TypeError` instead of throwing it. From 2.0 it will throw and the return
+ * type will be just `string`. Do not rely on `instanceof Error` checks on the result;
+ * wrap the call in `try/catch` instead.
  */
 export function getSVGIcon(
   op: Operator,
