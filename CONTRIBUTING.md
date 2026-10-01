@@ -74,7 +74,6 @@ Key rules:
 
 - The exported `const` name must match the directory name (`alibi` for `operators/alibi/`)
 - `role` is `"Attacker"` or `"Defender"`
-- `org` is deprecated (the game no longer has organizations): omit it for new operators
 - `season` follows `"YxSx"` (e.g. `"Y10S1"`) or `"Release"` for launch operators
 - `price` is optional: omit it if unknown
 - Recruits omit `bio`, `meta`, and `ratings`, see `operators/recruit_blue/index.ts` for the shape

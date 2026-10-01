@@ -3,7 +3,6 @@ import { IOperator } from "~/types/operator"
 export const pulse: IOperator = {
   name: "Pulse",
   role: "Defender",
-  org: "FBI SWAT",
   squad: "NIGHTHAVEN",
   ratings: {
     health: 1,

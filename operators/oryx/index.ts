@@ -3,7 +3,6 @@ import { IOperator } from "~/types/operator"
 export const oryx: IOperator = {
   name: "Oryx",
   role: "Defender",
-  org: "UNAFFILIATED",
   squad: "REDHAMMER",
   ratings: {
     health: 2,
