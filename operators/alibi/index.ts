@@ -19,6 +19,6 @@ export const alibi: IOperator = {
   },
   bio: {
     realName: "Aria de Luca",
-    birthplace: "Tripoli, Lybia",
+    birthplace: "Tripoli, Libya",
   },
 }

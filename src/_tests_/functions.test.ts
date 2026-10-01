@@ -29,3 +29,20 @@ it("toSVG() returns same output as getSVGIcon()", () => {
       expect(objFunc as string).toMatch(namedFunc as string)
     })
 })
+
+describe("getSVGIcon() errors", () => {
+  const op = r6ops["ace"]
+
+  it("returns a TypeError for a missing or invalid operator", () => {
+    expect(getSVGIcon(undefined as never)).toBeInstanceOf(TypeError)
+    expect(getSVGIcon({} as never)).toBeInstanceOf(TypeError)
+  })
+
+  it("returns a TypeError when userAttributes is not an object", () => {
+    expect(getSVGIcon(op, "x" as never)).toBeInstanceOf(TypeError)
+  })
+
+  it("merges the class of the operator with the user class", () => {
+    expect(getSVGIcon(op, { class: "foo" })).toMatch(/class="r6operators r6operators-ace foo"/)
+  })
+})
