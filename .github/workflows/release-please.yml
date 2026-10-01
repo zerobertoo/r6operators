@@ -1,0 +1,21 @@
+name: release-please
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  release-please:
+    name: Release PR
+    runs-on: ubuntu-latest
+    steps:
+      # opens/updates the release PR; merging it creates the vX.Y.Z tag and GitHub release.
+      # Publishing stays manual: run the "publish" workflow from that tag.
+      - uses: googleapis/release-please-action@v5
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
