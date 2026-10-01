@@ -1,6 +1,6 @@
 {
   "name": "@zerobertoo/r6operators",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "A collection of high-quality vectorized Rainbow Six: Siege operator icons & metadata for Node.js and the browser",
   "keywords": [
     "rainbow six siege",

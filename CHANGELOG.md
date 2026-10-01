@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/zerobertoo/r6operators/compare/v1.4.0...v2.0.0) (2026-10-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **react:** @zerobertoo/r6operators-react needs @zerobertoo/r6operators ^2.0.0.
+* r6operators.getSVGIcon from the default import is gone. Use import { getSVGIcon } from "@zerobertoo/r6operators" instead.
+* the org property is gone from IOperator and from every operator.
+* getSVGIcon and toSVG no longer return a TypeError. Wrap calls in try/catch instead of checking the result with instanceof Error.
+
+### Features
+
+* drop getSVGIcon from the default export ([#50](https://github.com/zerobertoo/r6operators/issues/50)) ([a92d33e](https://github.com/zerobertoo/r6operators/commit/a92d33e20ad171a8e3b647ac2b0efe8f16ce91f2))
+* **react:** require @zerobertoo/r6operators ^2.0.0 ([#51](https://github.com/zerobertoo/r6operators/issues/51)) ([b9037d2](https://github.com/zerobertoo/r6operators/commit/b9037d2e95023c82f87df749a6708baf370e6cec))
+* remove org from IOperator and the operator data ([#49](https://github.com/zerobertoo/r6operators/issues/49)) ([06ca94c](https://github.com/zerobertoo/r6operators/commit/06ca94cf219f82dcdff1bf5cf4d294f0dbaff7c1))
+* throw TypeError on invalid input instead of returning it ([#48](https://github.com/zerobertoo/r6operators/issues/48)) ([ea4ea9e](https://github.com/zerobertoo/r6operators/commit/ea4ea9e6880a10c6b7e6c76a82a6d3f0f3340d7e))
+
 ## [1.4.0](https://github.com/zerobertoo/r6operators/compare/v1.3.0...v1.4.0) (2026-10-01)
 
 
