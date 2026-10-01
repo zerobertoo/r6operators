@@ -19,11 +19,23 @@ jobs:
   publish:
     name: Build & Publish
     runs-on: ubuntu-latest
+    # configure required reviewers on the "npm" environment in the repo settings
+    environment: npm
     steps:
       - name: Checkout tag
         uses: actions/checkout@v6
         with:
           ref: ${{ inputs.version }}
+          fetch-depth: 0
+
+      - name: Verify tag is on master and matches package versions
+        env:
+          TAG: ${{ inputs.version }}
+        run: |
+          git merge-base --is-ancestor "$TAG" origin/master || { echo "$TAG is not on master"; exit 1; }
+          for pkg in package.json packages/react/package.json; do
+            [ "v$(node -p "require('./$pkg').version")" = "$TAG" ] || { echo "$pkg version does not match $TAG"; exit 1; }
+          done
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -41,11 +53,11 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: Publish to NPM
-        run: npm publish --provenance
-
       - name: Build React package
         run: npm run build --workspace=packages/react
+
+      - name: Publish to NPM
+        run: npm publish --provenance
 
       - name: Publish React package to NPM
         run: npm publish --workspace=packages/react --provenance
