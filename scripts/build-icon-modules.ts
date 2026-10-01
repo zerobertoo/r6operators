@@ -6,11 +6,7 @@ import { OPS_DIR } from "./config"
 // Default export as a plain object literal (no spread, no namespace import) so bundlers
 // can drop it when only named exports are used.
 export function buildAllModule(names: string[]): string {
-  return (
-    `import { ${names.join(", ")} } from "./index"\n` +
-    `import { getSVGIcon } from "~/functions"\n` +
-    `export default { ${names.join(", ")}, getSVGIcon }\n`
-  )
+  return `import { ${names.join(", ")} } from "./index"\nexport default { ${names.join(", ")} }\n`
 }
 
 export async function generateBarrel(): Promise<string[]> {

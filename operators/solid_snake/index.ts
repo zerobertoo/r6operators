@@ -3,7 +3,6 @@ import { IOperator } from "~/types/operator"
 export const solid_snake: IOperator = {
   name: "Solid Snake",
   role: "Attacker",
-  org: "UNAFFILIATED",
   squad: "none",
   ratings: {
     health: 1,

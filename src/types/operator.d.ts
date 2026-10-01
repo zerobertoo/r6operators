@@ -6,13 +6,6 @@ export interface IOperator {
    *  Possible values are `Attacker`, `Defender` or `Recruit`
    */
   role: "Attacker" | "Defender" | "Recruit"
-  /**
-   * Operator organization name.
-   *
-   * @deprecated The game no longer has organizations. Operators added from now on omit it,
-   * and it will be removed in 2.0.
-   */
-  org?: string
   /** Operator squad name */
   squad: string
   /** Object containing the health, speed and difficulty ratings. */
@@ -88,9 +81,7 @@ export interface Operator extends IOperator {
    * Returns the current icon as an SVG string.
    * @param userAttributes Object containing additional element attributes.
    * @returns String containing the SVG element.
-   *
-   * Deprecation notice: for invalid input this currently *returns* a `TypeError`. From 2.0 it
-   * will throw and the return type will be just `string`. Wrap the call in `try/catch`.
+   * @throws {TypeError} If `userAttributes` is invalid.
    */
-  toSVG(userAttributes?: Record<string, unknown>): string | Error
+  toSVG(userAttributes?: Record<string, unknown>): string
 }

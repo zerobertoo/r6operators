@@ -40,7 +40,7 @@ npm install @zerobertoo/r6operators
 // named imports
 import { ace, alibi, getSVGIcon } from "@zerobertoo/r6operators"
 
-// default import (all operators + getSVGIcon as one object)
+// default import (all operators as one object)
 import r6operators from "@zerobertoo/r6operators"
 
 alibi
@@ -48,7 +48,6 @@ alibi
 // 	  id: 'alibi',
 // 	  name: 'Alibi',
 // 	  role: 'Defender',
-// 	  org: 'GIS', // deprecated, removed in 2.0
 //    squad: 'VIPERSTRIKE',
 // 	  ratings: {
 // 		  health: 1,
@@ -192,8 +191,6 @@ An object containing all data about the operator, including the svg contents and
 > Note: You can find all possible operator names in the [operators/index.ts](https://github.com/zerobertoo/r6operators/blob/master/operators/index.ts) file
 >
 > Please keep in mind that the properties `bio`, `meta` and `ratings` are not available on recruits.
->
-> **Deprecation notice:** the game no longer has organizations, so `org` is deprecated and optional. New operators do not have it, and it will be removed in 2.0. Use `squad` instead.
 
 ---
 
@@ -241,7 +238,7 @@ getSVGIcon(alibi, { class: "large" })
 // <svg class="r6operators r6operators-alibi large" ... >...</svg>
 ```
 
-> **Deprecation notice:** with an invalid `op` or `attrs`, `getSVGIcon` and `toSVG` currently _return_ a `TypeError` instead of throwing it, hence the `string | Error` return type. From 2.0 they will throw and return just `string`. To be ready, do not check the result with `instanceof Error`; wrap the call in `try/catch` instead.
+Throws a `TypeError` when `op` or `attrs` is missing or invalid. `toSVG` throws the same way for an invalid `attrs`.
 
 ## Roadmap
 

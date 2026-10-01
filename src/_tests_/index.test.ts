@@ -17,3 +17,9 @@ test("exports extended object", () => {
     toSVG: expect.any(Function),
   })
 })
+
+test("default export holds only operators", () => {
+  const all = Object.values(r6operators.default)
+  expect(all).toHaveLength(Object.keys(ops).length)
+  expect(r6operators.default).not.toHaveProperty("getSVGIcon")
+})
