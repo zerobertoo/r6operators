@@ -86,9 +86,9 @@ export function r6operatorsPlugin(): Plugin {
 
           const stringified = stringifyObject(merged, {
             transform: (obj, property, original) => {
-              if (property === "toSVG")
-                return "function(userAttr){return getSVGIcon(this, userAttr)}"
-              return original
+              return property === "toSVG"
+                ? "function(userAttr){return getSVGIcon(this, userAttr)}"
+                : original
             },
           })
 
@@ -118,10 +118,9 @@ export function r6operatorsPlugin(): Plugin {
       const name = id.slice(VIRTUAL_PREFIX.length)
       if (name === "all")
         return buildAllModule(operatorNames).replace("./index", "@operators/index")
-      if (name === "index") {
-        return operatorNames.map((n) => `export { ${n} } from "@operators/${n}"`).join("\n") + "\n"
-      }
-      return moduleCache.get(name) ?? undefined
+      return name === "index"
+        ? operatorNames.map((n) => `export { ${n} } from "@operators/${n}"`).join("\n") + "\n"
+        : (moduleCache.get(name) ?? undefined)
     },
   }
 }

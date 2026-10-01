@@ -22,17 +22,16 @@ it("toSVG() returns correct string", () => {
 })
 
 it("toSVG() returns same output as getSVGIcon()", () => {
-  Object.keys(r6ops)
-    .filter((key) => typeof r6ops[key] === "object" && r6ops[key]?.svg)
-    .map((op) => {
-      const exampleAttributes = { class: "test", "stroke-width": 1 }
-      const example = withExampleSvg(r6ops[op])
+  const keys = Object.keys(r6ops).filter((key) => typeof r6ops[key] === "object" && r6ops[key]?.svg)
+  for (const op of keys) {
+    const exampleAttributes = { class: "test", "stroke-width": 1 }
+    const example = withExampleSvg(r6ops[op])
 
-      // test each operator
-      const objFunc = example.toSVG(exampleAttributes)
-      const namedFunc = getSVGIcon(example, exampleAttributes)
-      expect(objFunc as string).toMatch(namedFunc as string)
-    })
+    // test each operator
+    const objFunc = example.toSVG(exampleAttributes)
+    const namedFunc = getSVGIcon(example, exampleAttributes)
+    expect(objFunc as string).toMatch(namedFunc as string)
+  }
 })
 
 describe("getSVGIcon() errors", () => {

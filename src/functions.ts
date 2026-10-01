@@ -5,8 +5,8 @@ import { Operator } from "~/types/operator"
  * @param {Object} attributes - Object containing the attributes.
  */
 function attributesToString(attributes: Record<string, unknown>): string {
-  return Object.keys(attributes)
-    .map((key) => `${key}="${attributes[key]}"`)
+  return Object.entries(attributes)
+    .map(([key, value]) => `${key}="${value}"`)
     .join(" ")
 }
 /**
