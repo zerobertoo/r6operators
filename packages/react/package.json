@@ -49,7 +49,7 @@
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
-    "@zerobertoo/r6operators": "^1.1.0",
+    "@zerobertoo/r6operators": "^2.0.0",
     "react": ">=17"
   },
   "devDependencies": {
