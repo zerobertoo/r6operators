@@ -52,6 +52,7 @@
   },
   "scripts": {
     "clean": "ts-node ./scripts/clean.ts",
+    "new-operator": "ts-node ./scripts/new-operator.ts",
     "build": "npm run clean && ts-node ./scripts/build.ts",
     "pretest": "[ -d dist ] || npm run build",
     "test": "jest",
