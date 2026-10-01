@@ -6,13 +6,6 @@ export interface IOperator {
    *  Possible values are `Attacker`, `Defender` or `Recruit`
    */
   role: "Attacker" | "Defender" | "Recruit"
-  /**
-   * Operator organization name.
-   *
-   * @deprecated The game no longer has organizations. Operators added from now on omit it,
-   * and it will be removed in 2.0.
-   */
-  org?: string
   /** Operator squad name */
   squad: string
   /** Object containing the health, speed and difficulty ratings. */

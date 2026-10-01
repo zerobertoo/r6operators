@@ -3,7 +3,6 @@ import { IOperator } from "~/types/operator"
 export const sentry: IOperator = {
   name: "Sentry",
   role: "Defender",
-  org: "ROS",
   squad: "none",
   ratings: {
     health: 2,

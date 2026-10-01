@@ -8,7 +8,7 @@ All new packages will live in this same monorepo, sharing tooling, CI/CD, and re
 
 ## Current state
 
-- [x] Operator metadata (name, role, org, squad, ratings, bio, price)
+- [x] Operator metadata (name, role, squad, ratings, bio, price)
 - [x] Hand-crafted SVG operator icons
 - [x] `@zerobertoo/r6operators`: Node.js / browser package
 - [x] `@zerobertoo/r6operators-react`: React component wrapper
