@@ -217,7 +217,7 @@ getSVGIcon(alibi, { class: "large" })
 // <svg class="r6operators r6operators-alibi large" ... >...</svg>
 ```
 
-> **Deprecation notice:** with an invalid `op` or `attrs`, `getSVGIcon` and `toSVG` currently _return_ a `TypeError` instead of throwing it, hence the `string | Error` return type. From 2.0 they will throw and return just `string`. To be ready, do not check the result with `instanceof Error`; wrap the call in `try/catch` instead.
+Throws a `TypeError` when `op` or `attrs` is missing or invalid. `toSVG` throws the same way for an invalid `attrs`.
 
 ## Roadmap
 

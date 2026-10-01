@@ -88,9 +88,7 @@ export interface Operator extends IOperator {
    * Returns the current icon as an SVG string.
    * @param userAttributes Object containing additional element attributes.
    * @returns String containing the SVG element.
-   *
-   * Deprecation notice: for invalid input this currently *returns* a `TypeError`. From 2.0 it
-   * will throw and the return type will be just `string`. Wrap the call in `try/catch`.
+   * @throws {TypeError} If `userAttributes` is invalid.
    */
-  toSVG(userAttributes?: Record<string, unknown>): string | Error
+  toSVG(userAttributes?: Record<string, unknown>): string
 }

@@ -14,24 +14,17 @@ function attributesToString(attributes: Record<string, unknown>): string {
  * @param op Object containing operator object.
  * @param userAttributes Object containing additional element attributes.
  * @returns String containing the SVG element.
- *
- * Deprecation notice: for an invalid `op` or `userAttributes` this function currently
- * *returns* a `TypeError` instead of throwing it. From 2.0 it will throw and the return
- * type will be just `string`. Do not rely on `instanceof Error` checks on the result;
- * wrap the call in `try/catch` instead.
+ * @throws {TypeError} If `op` or `userAttributes` is missing or invalid.
  */
-export function getSVGIcon(
-  op: Operator,
-  userAttributes?: { [key: string]: unknown },
-): string | Error {
+export function getSVGIcon(op: Operator, userAttributes?: { [key: string]: unknown }): string {
   // check if parameter is an object
   if (userAttributes && typeof userAttributes !== "object") {
-    return new TypeError("The parameter `userAttributes` is either missing or invalid.")
+    throw new TypeError("The parameter `userAttributes` is either missing or invalid.")
   }
 
   // check if parameter is an object
   if (!op || !op.svg || !op.svg.attributes || !op.svg.contents) {
-    return new TypeError("The parameter `op` is either missing or invalid.")
+    throw new TypeError("The parameter `op` is either missing or invalid.")
   }
 
   // create an object containing all attributes from the icon + user attributes

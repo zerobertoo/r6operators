@@ -30,20 +30,21 @@ it("toSVG() returns same output as getSVGIcon()", () => {
     // test each operator
     const objFunc = example.toSVG(exampleAttributes)
     const namedFunc = getSVGIcon(example, exampleAttributes)
-    expect(objFunc as string).toMatch(namedFunc as string)
+    expect(objFunc).toMatch(namedFunc)
   }
 })
 
 describe("getSVGIcon() errors", () => {
   const op = r6ops["ace"]
 
-  it("returns a TypeError for a missing or invalid operator", () => {
-    expect(getSVGIcon(undefined as never)).toBeInstanceOf(TypeError)
-    expect(getSVGIcon({} as never)).toBeInstanceOf(TypeError)
+  it("throws a TypeError for a missing or invalid operator", () => {
+    expect(() => getSVGIcon(undefined as never)).toThrow(TypeError)
+    expect(() => getSVGIcon({} as never)).toThrow(TypeError)
   })
 
-  it("returns a TypeError when userAttributes is not an object", () => {
-    expect(getSVGIcon(op, "x" as never)).toBeInstanceOf(TypeError)
+  it("throws a TypeError when userAttributes is not an object", () => {
+    expect(() => getSVGIcon(op, "x" as never)).toThrow(TypeError)
+    expect(() => op.toSVG("x" as never)).toThrow(TypeError)
   })
 
   it("merges the class of the operator with the user class", () => {
