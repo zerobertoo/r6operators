@@ -1,6 +1,6 @@
 # Roadmap
 
-This document outlines the planned evolution of the `@zerobertoo/r6operators` ecosystem — from its current operator-focused scope into a comprehensive Rainbow Six: Siege data library.
+This document outlines the planned evolution of the `@zerobertoo/r6operators` ecosystem, from its current operator-focused scope into a comprehensive Rainbow Six: Siege data library.
 
 All new packages will live in this same monorepo, sharing tooling, CI/CD, and release pipelines.
 
@@ -10,11 +10,13 @@ All new packages will live in this same monorepo, sharing tooling, CI/CD, and re
 
 - [x] Operator metadata (name, role, org, squad, ratings, bio, price)
 - [x] Hand-crafted SVG operator icons
-- [x] `@zerobertoo/r6operators` — Node.js / browser package
-- [x] `@zerobertoo/r6operators-react` — React component wrapper
+- [x] `@zerobertoo/r6operators`: Node.js / browser package
+- [x] `@zerobertoo/r6operators-react`: React component wrapper
 - [x] CDN distribution via jsDelivr and unpkg
 - [x] TypeScript types for all entities
 - [x] Season-aware data updates
+- [x] Docs site with live search and filters
+- [x] Versions, tags and changelog automated with release-please
 
 ---
 
@@ -27,7 +29,7 @@ Breaking changes are announced with a deprecation notice in a minor release firs
 
 ---
 
-## Phase 1 — Weapons data `@zerobertoo/r6weapons`
+## Phase 1: Weapons data `@zerobertoo/r6weapons`
 
 Introduce a new workspace package with structured weapon metadata, following the same patterns established by the operators package.
 
@@ -46,7 +48,7 @@ Introduce a new workspace package with structured weapon metadata, following the
 
 ---
 
-## Phase 2 — Maps data `@zerobertoo/r6maps`
+## Phase 2: Maps data `@zerobertoo/r6maps`
 
 Structured data for all maps, including layout details and objective locations.
 
@@ -65,7 +67,7 @@ Structured data for all maps, including layout details and objective locations.
 
 ---
 
-## Phase 3 — React wrappers
+## Phase 3: React wrappers
 
 Dedicated React packages for the new data modules, keeping the same ergonomics as `@zerobertoo/r6operators-react`.
 
@@ -78,27 +80,25 @@ Dedicated React packages for the new data modules, keeping the same ergonomics a
 
 ---
 
-## Phase 4 — Visual assets (CDN-only)
+## Phase 4: Visual assets (CDN-only)
 
 Raster and vector assets are too large for npm bundles. These will be distributed via CDN only, with metadata packages exposing typed URL resolvers.
 
 - [ ] Weapon render images (standardized format, consistent background)
 - [ ] Map overview images (top-down floor plans per floor)
-- [ ] `getWeaponImageURL(weapon)` — returns jsDelivr / unpkg URL
-- [ ] `getMapImageURL(map, floor)` — returns jsDelivr / unpkg URL
+- [ ] `getWeaponImageURL(weapon)`: returns jsDelivr / unpkg URL
+- [ ] `getMapImageURL(map, floor)`: returns jsDelivr / unpkg URL
 - [ ] Assets versioned alongside their respective packages
 
 ---
 
-## Phase 5 — Ecosystem polish
+## Phase 5: Ecosystem polish
 
 Quality-of-life improvements across the whole monorepo once the core packages are stable.
 
 - [ ] Unified search across operators, weapons, and maps
 - [ ] Cross-package relations (operator → weapons, map → available operators, etc.)
 - [ ] `@zerobertoo/r6data` meta-package that re-exports all packages for convenience
-- [ ] Interactive docs site with live search and filtering
-- [ ] Changelog automation for season updates
 
 ---
 
@@ -106,7 +106,7 @@ Quality-of-life improvements across the whole monorepo once the core packages ar
 
 Contributions are welcome at any phase. If you want to help, check the [contribution guidelines](./CONTRIBUTING.md) and open an issue or pull request.
 
-Data accuracy and completeness are community efforts — if you spot outdated stats or missing entries, please open a PR.
+Data accuracy and completeness are community efforts. If you spot outdated stats or missing entries, please open a PR.
 
 ---
 

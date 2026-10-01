@@ -39,10 +39,10 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo:  context.repo.repo,
-              title: `[Season] Add ${season} operators — ${name}`,
+              title: `[Season] Add ${season} operators: ${name}`,
               labels: ["new-operator", "season"],
               body: [
-                `## ${season} — ${name}`,
+                `## ${season}: ${name}`,
                 "",
                 "A new Rainbow Six: Siege season has launched. Complete the checklist below to keep the package up to date.",
                 "",
@@ -54,7 +54,7 @@ jobs:
                 "- [ ] Set `season` to `\"" + season + "\"`",
                 "- [ ] Update `CURRENT_SEASON` in `scripts/config.ts` to `\"" + season + "\"`",
                 "- [ ] Run `npm run build` and verify the new operator appears in `dist/`",
-                "- [ ] Run `npm run test` — all tests pass",
+                "- [ ] Run `npm run test`, all tests pass",
                 "- [ ] Open a PR with title `feat(operators): add <name> (${season})`",
                 "- [ ] After merge, bump the version and trigger the `publish` workflow",
                 "",

@@ -12,9 +12,9 @@
 _Fill this in only if you checked "New operator" above._
 
 - [ ] `operators/<name>/` directory created with `<name>.svg` and `index.ts`
-- [ ] All `IOperator` fields filled: `name`, `role`, `org`, `squad`, `ratings`, `meta`, `bio`
+- [ ] All `IOperator` fields filled: `name`, `role`, `squad`, `ratings`, `meta`, `bio`
 - [ ] `season` set correctly (format: `Y10S1`, or `Release` for launch operators)
-- [ ] `npm run build` passes — operator appears in `dist/icons/<name>.svg`
+- [ ] `npm run build` passes, operator appears in `dist/icons/<name>.svg`
 - [ ] `npm run test` passes
 
 ---
@@ -36,7 +36,7 @@ _Fill this in only if you checked "Code / feature / refactor" above._
 - [ ] `npm run build` passes
 - [ ] `npm run test` passes
 - [ ] `npm run lint` passes
-- [ ] Breaking change? <!-- yes / no — if yes, describe what callers need to update -->
+- [ ] Breaking change? <!-- yes / no, if yes describe what callers need to update -->
 
 ---
 
