@@ -98,7 +98,7 @@
     "defaults"
   ],
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,ts,json,md}": "prettier --write"
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,json,md,yml}": "prettier --write"
   }
 }

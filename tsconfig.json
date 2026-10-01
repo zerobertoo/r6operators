@@ -15,6 +15,7 @@
       "@operators/*": ["./operators/*"],
       "@temp/*": ["./temp/*"]
     },
+    "strict": true,
     "types": ["jest", "node"]
   },
   "ts-node": {
