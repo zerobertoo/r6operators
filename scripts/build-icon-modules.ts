@@ -3,6 +3,16 @@ import { promises as fs } from "fs"
 
 import { OPS_DIR } from "./config"
 
+// Default export as a plain object literal (no spread, no namespace import) so bundlers
+// can drop it when only named exports are used.
+export function buildAllModule(names: string[]): string {
+  return (
+    `import { ${names.join(", ")} } from "./index"\n` +
+    `import { getSVGIcon } from "~/functions"\n` +
+    `export default { ${names.join(", ")}, getSVGIcon }\n`
+  )
+}
+
 export async function generateBarrel(): Promise<string[]> {
   const entries = await fs.readdir(OPS_DIR, { withFileTypes: true })
   const names = entries
@@ -12,6 +22,7 @@ export async function generateBarrel(): Promise<string[]> {
 
   const content = names.map((n) => `export { ${n} } from "./${n}"`).join("\n") + "\n"
   await fs.writeFile(path.join(OPS_DIR, "index.ts"), content)
+  await fs.writeFile(path.join(OPS_DIR, "all.ts"), buildAllModule(names))
 
   return names
 }
