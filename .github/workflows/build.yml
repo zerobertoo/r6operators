@@ -2,7 +2,6 @@ name: ci
 
 permissions:
   contents: read
-  security-events: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -53,6 +52,9 @@ jobs:
       - name: Lint code
         run: npm run lint
 
+      - name: Check formatting
+        run: npx prettier --check . --ignore-path .gitignore
+
   build:
     name: Build & Test
     runs-on: ubuntu-latest
@@ -77,5 +79,19 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Check generated barrels are committed
+        run: git diff --exit-code operators/
+
       - name: Run tests with coverage
         run: npm run test -- --coverage
+
+      - name: Build React package
+        run: npm run build --workspace=packages/react
+
+      - name: Smoke test the packed package
+        run: |
+          npm pack --silent
+          mkdir /tmp/smoke && cd /tmp/smoke && npm init -y >/dev/null
+          npm i "$GITHUB_WORKSPACE"/zerobertoo-r6operators-*.tgz >/dev/null
+          node -e "const r=require('@zerobertoo/r6operators');if(!r.ace.toSVG().startsWith('<svg'))process.exit(1)"
+          node --input-type=module -e "import { ace } from '@zerobertoo/r6operators';if(ace.id!=='ace')process.exit(1)"

@@ -1,10 +1,6 @@
 name: New Season Reminder
 
 on:
-  schedule:
-    # Y11S2 — adjust date when Ubisoft announces the next season
-    # Format: cron runs at 09:00 UTC on the expected release day
-    - cron: "0 9 10 9 *" # placeholder: Sep 10 2026
   workflow_dispatch:
     inputs:
       season:
@@ -22,21 +18,23 @@ jobs:
     steps:
       - name: Resolve season info
         id: info
+        env:
+          SEASON: ${{ github.event.inputs.season }}
+          SEASON_NAME: ${{ github.event.inputs.season_name }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "season=${{ github.event.inputs.season }}" >> "$GITHUB_OUTPUT"
-            echo "name=${{ github.event.inputs.season_name }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "season=Y11S2" >> "$GITHUB_OUTPUT"
-            echo "name=New Season" >> "$GITHUB_OUTPUT"
-          fi
+          [[ "$SEASON" =~ ^Y[0-9]+S[1-4]$ ]] || { echo "invalid season: $SEASON"; exit 1; }
+          echo "season=$SEASON" >> "$GITHUB_OUTPUT"
+          echo "name=$SEASON_NAME" >> "$GITHUB_OUTPUT"
 
       - name: Open season checklist issue
         uses: actions/github-script@v7
+        env:
+          SEASON: ${{ steps.info.outputs.season }}
+          SEASON_NAME: ${{ steps.info.outputs.name }}
         with:
           script: |
-            const season = "${{ steps.info.outputs.season }}";
-            const name   = "${{ steps.info.outputs.name }}";
+            const season = process.env.SEASON;
+            const name   = process.env.SEASON_NAME;
 
             await github.rest.issues.create({
               owner: context.repo.owner,
@@ -57,12 +55,9 @@ jobs:
                 "- [ ] Update `CURRENT_SEASON` in `scripts/config.ts` to `\"" + season + "\"`",
                 "- [ ] Run `npm run build` and verify the new operator appears in `dist/`",
                 "- [ ] Run `npm run test` — all tests pass",
-                "- [ ] Update `CHANGELOG.md` with the new operator(s)",
                 "- [ ] Open a PR with title `feat(operators): add <name> (${season})`",
                 "- [ ] After merge, bump the version and trigger the `publish` workflow",
                 "",
-                "### Next season date",
-                "",
-                "Update the cron schedule in `.github/workflows/new-season.yml` once the next season date is announced.",
+                "Trigger the `New Season Reminder` workflow again when the next season launches.",
               ].join("\n"),
             });
