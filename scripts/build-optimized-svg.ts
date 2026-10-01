@@ -28,9 +28,6 @@ export async function buildOptimizedSVG(): Promise<void> {
     // optimize svg with svgo
     const svgoConfig: OptimizeOptions = {
       plugins: [
-        // override default preset
-        "preset-default",
-        // enable plugins
         ...SVGO_PLUGINS,
         {
           name: "prefixIds",
